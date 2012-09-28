@@ -3,73 +3,73 @@ admin_index:
     defaults: { _controller: phpBBStatusSiteBundle:Admin:index }
 
 admin_settings:
-	pattern: /settings/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:settings }
+    pattern: /settings/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:settings }
 
 admin_add_site:
-	pattern: /site/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:sites }
+    pattern: /site/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:sites }
 
 admin_add_site:
-	pattern: /site/add/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:site_add }
+    pattern: /site/add/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:site_add }
 
 admin_modify_site:
-	pattern: /site/modify/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:site_modify }
+    pattern: /site/modify/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:site_modify }
 
 admin_remove_site:
-	pattern: /site/remove/{site}
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:site_remove }
+    pattern: /site/remove/{site}
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:site_remove }
 
 admin_modify_update:
-	pattern: /update/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:updates }
+    pattern: /update/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:updates }
 
 admin_modify_update:
-	pattern: /update/modify/{id}
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:update_modify }
+    pattern: /update/modify/{id}
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:update_modify }
 
 admin_remove_update:
-	pattern: /update/remove/{id}
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:update_remove }
+    pattern: /update/remove/{id}
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:update_remove }
 
 admin_add_update:
-	pattern: /update/add/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:update_add }
+    pattern: /update/add/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:update_add }
 
 admin_user:
-	pattern: /user/
-	defaults: { _controller: phpBBStatusSiteBundle:User:index }
+    pattern: /user/
+    defaults: { _controller: phpBBStatusSiteBundle:User:index }
 
 admin_user_add:
-	pattern: /user/add/
-	defaults: { _controller: phpBBStatusSiteBundle:User:user_add }
+    pattern: /user/add/
+    defaults: { _controller: phpBBStatusSiteBundle:User:user_add }
 
 admin_user_modify:
-	pattern: /user/modify/
-	defaults: { _controller: phpBBStatusSiteBundle:User:user_modify }
+    pattern: /user/modify/
+    defaults: { _controller: phpBBStatusSiteBundle:User:user_modify }
 
 admin_user_remove:
-	pattern: /user/remove/
-	defaults: { _controller: phpBBStatusSiteBundle:User:user_remove }
+    pattern: /user/remove/
+    defaults: { _controller: phpBBStatusSiteBundle:User:user_remove }
 
 admin_logs:
-	pattern: /logs/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:logs }
+    pattern: /logs/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:logs }
 
 admin_logs:
-	pattern: /logs/purge/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:logs_purge}
+    pattern: /logs/purge/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:logs_purge}
 
 admin_notes:
-	pattern: /notes/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:notes }
+    pattern: /notes/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:notes }
 
 admin_add_note:
-	pattern: /notes/add/
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:note_add }
+    pattern: /notes/add/
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:note_add }
 
 admin_remove_note:
-	pattern: /notes/remove/{id}
-	defaults: { _controller: phpBBStatusSiteBundle:Admin:note_remove }
+    pattern: /notes/remove/{id}
+    defaults: { _controller: phpBBStatusSiteBundle:Admin:note_remove }

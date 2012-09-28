@@ -2,6 +2,18 @@ homepage:
     pattern:  /
     defaults: { _controller: phpBBStatusSiteBundle:Default:index }
 
+purge:
+    pattern: /purge/
+    defaults: { _controller: phpBBStatusSiteBundle:Default:purge }
+
+login:
+    pattern: /login/
+    defaults: { _controller: phpBBStatusSiteBundle:User:login }
+
+login_check:
+    pattern: /login_check/
+    defaults: { _controller: phpBBStatusSiteBundle:User:login_check }
+
 admin:
-    resource: "@phpBBStatusSiteBundle/Resources/config/routing_admin.yml"
+    resource: "@phpBBStatusSiteBundle/Resources/config/admin.yml"
     prefix:   /admin
