@@ -1,19 +1,6 @@
 {
-    "autoload": {
-        "psr-0":         {
-            "": "src/"
-        }
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
-    "description": "The phpBB Status Site",
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web"
-    },
-    "minimum-stability": "dev",
     "name": "phpbb/status-site",
+    "description": "The phpBB Status Site",
     "require": {
         "doctrine/doctrine-bundle": "1.0.*",
         "doctrine/orm": "2.3.*@beta",
@@ -31,16 +18,30 @@
     },
     "scripts": {
         "post-install-cmd": [
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
     ],
         "post-update-cmd": [
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
     ]
-    }
+    },
+    "autoload": {
+        "psr-0":         {
+            "": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web"
+    },
+    "minimum-stability": "dev"
 }
