@@ -1,0 +1,3 @@
+php_bb_status_site_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: phpBBStatusSiteBundle:Default:index }
