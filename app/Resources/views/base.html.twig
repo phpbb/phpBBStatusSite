@@ -1,13 +1,121 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<title>{% block title %}phpBB Status Site!{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Site to announce any maintenance and the current status of phpBB Group Sites">
+	<meta name="author" content="phpBB Group">
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="resource-type" content="document" />
+	<meta name="distribution" content="global" />
+	<meta name="application-name" content="phpBB Status Site" />
+	<meta name="msapplication-tooltip" content="phpBB &bull; Free and Open Source Forum Software" />
+	<meta name="msapplication-starturl" content="/" />
+	<meta name="msapplication-window" content="width=1024;height=768" />
+	<meta name="msapplication-task" content="name=Home; action-uri=/; icon-uri=favicon.ico" />
+	<meta name="msapplication-task" content="name=Community; action-uri=/community/; icon-uri=favicon.ico" />
+	<meta name="msapplication-task" content="name=Blog; action-uri=http://blog.phpbb.com/; icon-uri=favicon.ico" />
+	<meta name="msapplication-task" content="name=Customise; action-uri=/customise/; icon-uri=favicon.ico" />
+	<meta name="msapplication-task" content="name=Area51; action-uri=http://area51.phpbb.com/; icon-uri=favicon.ico" />
+
+	{% block stylesheets %}
+	<link href="{{ asset('bundles/phpbbstatussite/css/bootstrap.min.css')}}" rel="stylesheet">
+	<style type="text/css">
+	  body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	  }
+	  .sidebar-nav {
+		padding: 9px 0;
+	  }
+	</style>
+	<link href="{{ asset('bundles/phpbbstatussite/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
+	{% endblock %}
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le fav and touch icons -->
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+	<link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png')}} ">
+  </head>
+
+  <body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="navbar-inner">
+		<div class="container-fluid">
+		  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </a>
+		  <a class="brand" href="#">phpBB</a>
+		  <div class="nav-collapse collapse">
+		{% if app.user %}
+
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> {{ app.user.username }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a>Settings</a></li>
+              <li class="divider"></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+          {% else %}
+          <form class="navbar-search pull-right"  action="{{ path('login_check') }}" method="post">
+	    <input type="text" class="search-query" name="_username" placeholder="Username">
+	    <input type="password" class="search-query" name="_password" placeholder="Password">
+	    <input type="submit" name="login" value="Login" class="btn"  />
+	  </form>
+	  {% endif %}
+			<ul class="nav">
+			  <li class="active"><a href="#">Home</a></li>
+			  <li><a href="#about">About</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			</ul>
+		  </div><!--/.nav-collapse -->
+		</div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	  	{% block sidebar %}
+	  	{% if app.user %} 
+		<div class="span3">
+		  <div class="well sidebar-nav">
+			<ul class="nav nav-list">
+			  <li class="nav-header"><a href="#">ACP</a></li>
+			  <li><a href="#">Updates</a></li>
+			  <li><a href="#">Sites</a></li>
+			  <li><a href="#">Logs</a></li>
+			  <li><a href="#">Users</a></li>
+			</ul>
+		  </div><!--/.well -->
+		</div><!--/span-->
+		{% endif %}
+		{% endblock %}
+
+		{% block body %}{% endblock %}
+
+	</div><!--/row-->
+	<hr>
+
+	<footer>
+		<p>&copy; <a href="https://www.phpbb.com/about/">phpBB Limited</a></p>
+		<p>Powered by <a href="http://symfony.com/">Symfony</a> &amp; <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a><br>
+		View the source code <a href="https://github.com/phpbb/phpBBStatusSite">here</a></p>
+	</footer>
+
+	</div><!--/.fluid-container-->
+	
+	{% block javascripts %}
+	<script src="{{ asset('bundles/phpbbstatussite/js/jquery-1.7.2.min.js') }}"></script>
+	<script src="{{ asset('bundles/phpbbstatussite/js/bootstrap.min.js') }}"></script>
+	{% endblock %}
+  </body>
 </html>
