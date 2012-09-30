@@ -1,5 +1,5 @@
 {
-    "hash": "37339c3b837f68f26cdc3de4d6e5b3e7",
+    "hash": "83feebafee0ce76843a12783588e2c91",
     "packages": [
         {
             "name": "doctrine/common",
@@ -133,41 +133,41 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "target-dir": "Doctrine/Bundle/DoctrineBundle",
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "db818ceec46d05fed4f944b957f82a4ab5197e27"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineBundle/zipball/db818ceec46d05fed4f944b957f82a4ab5197e27",
-                "reference": "db818ceec46d05fed4f944b957f82a4ab5197e27",
+                "url": "https://github.com/doctrine/DoctrineBundle/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "doctrine/dbal": ">=2.2,<2.4-dev",
-                "symfony/framework-bundle": ">=2.1,<2.3-dev",
-                "symfony/doctrine-bridge": ">=2.1,<2.3-dev"
+                "symfony/framework-bundle": "2.1.*",
+                "symfony/doctrine-bridge": "2.1.*",
+                "doctrine/dbal": ">=2.2,<2.4-dev"
             },
             "require-dev": {
                 "doctrine/orm": ">=2.2,<2.4-dev",
-                "symfony/yaml": ">=2.1,<2.3-dev",
-                "symfony/validator": ">=2.1,<2.3-dev"
+                "symfony/yaml": "2.1.*",
+                "symfony/validator": "2.1.*"
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "1348828243",
+            "time": "2012-09-07 21:18:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Bundle\\DoctrineBundle": ""
@@ -529,16 +529,16 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/kriswallsmith/assetic.git",
-                "reference": "a6baab9b4c4361aca51bf90ee47c1586dff3cb0c"
+                "reference": "e22c5e07e672bb0cf43127e97e9368b53abf4aa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/kriswallsmith/assetic/zipball/a6baab9b4c4361aca51bf90ee47c1586dff3cb0c",
-                "reference": "a6baab9b4c4361aca51bf90ee47c1586dff3cb0c",
+                "url": "https://github.com/kriswallsmith/assetic/zipball/e22c5e07e672bb0cf43127e97e9368b53abf4aa8",
+                "reference": "e22c5e07e672bb0cf43127e97e9368b53abf4aa8",
                 "shasum": ""
             },
             "require": {
-                "symfony/process": "2.1.*",
+                "symfony/process": ">=2.1.0,<2.3-dev",
                 "php": ">=5.3.1"
             },
             "require-dev": {
@@ -555,7 +555,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
             },
-            "time": "1347622188",
+            "time": "1349004759",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -837,17 +837,17 @@
         },
         {
             "name": "symfony/assetic-bundle",
-            "version": "dev-master",
+            "version": "v2.1.0",
             "target-dir": "Symfony/Bundle/AsseticBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle",
-                "reference": "64345e86761444c35679e1aed424e1ed2370f0de"
+                "reference": "v2.1.0-RC2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/AsseticBundle/zipball/64345e86761444c35679e1aed424e1ed2370f0de",
-                "reference": "64345e86761444c35679e1aed424e1ed2370f0de",
+                "url": "https://github.com/symfony/AsseticBundle/zipball/v2.1.0-RC2",
+                "reference": "v2.1.0-RC2",
                 "shasum": ""
             },
             "require": {
@@ -867,7 +867,7 @@
             "suggest": {
                 "symfony/twig-bundle": "2.1.*"
             },
-            "time": "1347626244",
+            "time": "2012-08-28 10:22:44",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1202,9 +1202,9 @@
     "aliases": [
 
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "stability-flags": {
-        "doctrine/orm": 10,
-        "symfony/symfony": 10
+        "kriswallsmith/assetic": 20,
+        "twig/extensions": 20
     }
 }
