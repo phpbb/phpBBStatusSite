@@ -6,6 +6,8 @@
         "doctrine/dbal": "2.3.*",
         "doctrine/orm": "2.3.*",
         "doctrine/doctrine-bundle": "1.0.*",
+        "doctrine/doctrine-migrations-bundle": "dev-master@dev",
+        "doctrine/migrations": "dev-master@dev",
         "jms/di-extra-bundle": "1.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "kriswallsmith/assetic": "1.1.*@dev",
