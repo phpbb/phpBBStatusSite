@@ -352,12 +352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations",
-                "reference": "3dd738b2a709f4d5185c144292189c6e708ca37d"
+                "reference": "b38ddb190ec78d389b2c2de838b2a4d646ad1ce2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/migrations/zipball/3dd738b2a709f4d5185c144292189c6e708ca37d",
-                "reference": "3dd738b2a709f4d5185c144292189c6e708ca37d",
+                "url": "https://github.com/doctrine/migrations/zipball/b38ddb190ec78d389b2c2de838b2a4d646ad1ce2",
+                "reference": "b38ddb190ec78d389b2c2de838b2a4d646ad1ce2",
                 "shasum": ""
             },
             "require": {
@@ -371,7 +371,7 @@
             "suggest": {
                 "symfony/console": "to run the migration from the console"
             },
-            "time": "1348090059",
+            "time": "1349435713",
             "type": "library",
             "installation-source": "source",
             "autoload": {
