@@ -1,1 +1,22 @@
 {% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }} - Home{% endblock %}
+
+{% block body %}
+<div class="row-fluid">
+
+	{# Main Body #}
+	<div class="span8">
+	</div>
+
+	{# Sidebar #}
+	<div class="span4">
+		<div class"row-fluid">
+			<div class="span9 offset2">
+				<a class="twitter-timeline" href="https://twitter.com/phpbb" data-widget-id="253898361659334656">Tweets by @phpbb</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
