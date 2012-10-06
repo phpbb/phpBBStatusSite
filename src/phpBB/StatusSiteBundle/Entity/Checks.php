@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="sites")
+ * @ORM\Table(name="checks")
  */
-class Site
+class Checks
 {
     /**
      * @ORM\Id
@@ -16,6 +16,11 @@ class Site
      * @ORM\GeneratedValue(strategy="AUTO")
      */
 	protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $site_id;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -305,5 +310,28 @@ class Site
     public function getStatusCode()
     {
         return $this->status_code;
+    }
+
+    /**
+     * Set site_id
+     *
+     * @param integer $siteId
+     * @return Site
+     */
+    public function setSiteId($siteId)
+    {
+        $this->site_id = $siteId;
+    
+        return $this;
+    }
+
+    /**
+     * Get site_id
+     *
+     * @return integer 
+     */
+    public function getSiteId()
+    {
+        return $this->site_id;
     }
 }
