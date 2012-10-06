@@ -44,51 +44,52 @@
 	</head>
 
 	<body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container-fluid">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					<a class="brand" href="#">phpBB</a>
-					<div class="nav-collapse collapse">
-						{% if app.user %}
-							<div class="btn-group pull-right">
-								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-									<i class="icon-user"></i> {{ app.user.username }}
-									<span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu">
-									<li><a>Settings</a></li>
-									<li><a>ACP</a></li>
-									<li class="divider"></li>
-									<li><a>Logout</a></li>
-								</ul>
-							</div>
-						{% endif %}
-							<ul class="nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+		  		</a>
+		 		<a class="brand" href="/">phpBB</a>
+				<div class="nav-collapse collapse">
+					{% if app.user %}
+						<div class="btn-group pull-right">
+							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="icon-user"></i> {{ app.user.username }}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a>Settings</a></li>
+								<li><a>ACP</a></li>
+								<li class="divider"></li>
+								<li><a>Logout</a></li>
 							</ul>
-					</div><!--/.nav-collapse -->
-				</div>
+						</div>
+					{% endif %}
+						<ul class="nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+				</div><!--/.nav-collapse -->
 			</div>
 		</div>
+	</div>
 
-		{% block body %}{% endblock %}
+	<div class="container">
 
-		<div class="container-fluid">
-			<hr>
-			<footer>
-				<p>&copy; <a href="https://www.phpbb.com/about/">phpBB Limited</a></p>
-				<p>Powered by <a href="http://symfony.com/">Symfony</a> &amp; <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a><br>
-				View the source code <a href="https://github.com/phpbb/phpBBStatusSite">here</a></p>
-			</footer>
+	{% block body %}{% endblock %}
 
-		</div><!--/.fluid-container-->
+	<footer>
+		<hr>
+		<p>&copy; <a href="https://www.phpbb.com/about/">phpBB Limited</a></p>
+		<p>Powered by <a href="http://symfony.com/">Symfony</a> &amp; <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a><br>
+		View the source code <a href="https://github.com/phpbb/phpBBStatusSite">here</a></p>
+	</footer>
+
+	</div> <!-- /container -->
 
 		{% block javascripts %}
 			<script src="{{ asset('bundles/phpbbstatussite/js/jquery-1.7.2.min.js') }}"></script>
