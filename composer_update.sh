@@ -5,7 +5,7 @@ echo "composer.phar Update:"
 php composer.phar self-update
 echo ""
 echo "Deps update:"
-php composer.phar update
+php composer.phar update --dev
 echo ""
 echo "Git stage .lock & .phar:"
 git add composer.lock
