@@ -2,12 +2,42 @@
 
 {% block title %}{{ parent() }} - Home{% endblock %}
 
+{% block stylesheets %}
+{{ parent() }}
+<style type="text/css">
+	{% if status == "Minor Outage" %}
+		.hero-unit {background-color:#FAD090;}
+	{% elseif status == "Major Outage" %}
+		.hero-unit {background-color:rgba(235, 7, 7, 0.69);}
+	{% elseif status == "Fully Operational" %}
+		.hero-unit {background-color:#A9FA90;}
+	{% endif %}
+</style>
+{% endblock %}
+
 {% block body %}
 
 {# Main Block #}
 <div class="hero-unit">
-	<h1>Lorem ipsum dolor sit amet</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor mollis libero nec commodo. Phasellus mattis, quam sed sodales ultricies, augue urna tristique dolor, non pharetra sapien felis ac libero. Etiam consequat commodo eros ultrices fermentum. Nam faucibus eros nec dui gravida gravida. Nulla non ante sed arcu dapibus mattis.</p>
+	<h1>{{ status }}</h1>
+	<p>
+		Last Check: {{ last_check }}.
+		<br /><br />
+		<div class="row">
+			<div class="span2">
+				<ul>
+					<li>phpBB.com</li>
+					<li>Misc Server (Blog, Wiki etc.)</li>
+				<ul>
+			</div>
+			<div class="span2">
+				<ul>
+					<li>Area51</li>
+					<li>Databases</li>
+				<ul>
+			</div>
+		</div>
+	</p>
 </div>
 
 <div class="row">
