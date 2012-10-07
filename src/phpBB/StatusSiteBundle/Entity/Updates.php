@@ -28,7 +28,7 @@ class Updates
 	protected $description;
 
 	/**
-	 * @ORM\Column(type="time")
+	 * @ORM\Column(type="datetime")
 	 */
 	protected $post_time;
 

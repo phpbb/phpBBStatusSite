@@ -23,12 +23,12 @@ class Overides
 	protected $site_id;
 
 	/**
-	 * @ORM\Column(type="time")
+	 * @ORM\Column(type="datetime")
 	 */
 	protected $start_time;
 
 	/**
-	 * @ORM\Column(type="time")
+	 * @ORM\Column(type="datetime")
 	 */
 	protected $end_time;
 
