@@ -16,12 +16,11 @@
 {% endblock %}
 
 {% block body %}
-
 {# Main Block #}
 <div class="hero-unit">
 	<h1>{{ status }}</h1>
 	<p>
-		Last Check: {{ last_check|date("d/m/Y", "Europe/London") }}.
+		Last Check: {{ "Now"|date }}.
 		<br /><br />
 		<div class="row">
 			<div class="span2">
