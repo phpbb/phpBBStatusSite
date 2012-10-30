@@ -1,5 +1,5 @@
 echo "Git Status:"
-git status
+git status -sb
 echo ""
 echo "composer.phar Update:"
 php composer.phar self-update
