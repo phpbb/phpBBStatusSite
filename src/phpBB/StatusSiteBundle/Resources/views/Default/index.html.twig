@@ -20,29 +20,32 @@
 <div class="hero-unit">
 	<h1>{{ status }}</h1>
 	<p>
-		Last Check: {{ "Now"|date }}.
 		<br /><br />
-		<div class="row">
-			<div class="span2">
-				<ul>
-					<li>phpBB.com</li>
-					<li>Misc Server (Blog, Wiki etc.)</li>
-				<ul>
-			</div>
-			<div class="span2">
-				<ul>
-					<li>Area51</li>
-					<li>Databases</li>
-				<ul>
-			</div>
-		</div>
+		{% if status != "Fully Operational" and planned != true %}
+			A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
+		{% endif %}
 	</p>
 </div>
 
 <div class="row">
 	{# Main Body #}
 	<div class="span8">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas auctor mollis libero nec commodo. Phasellus mattis, quam sed sodales ultricies, augue urna tristique dolor, non pharetra sapien felis ac libero. Etiam consequat commodo eros ultrices fermentum. Nam faucibus eros nec dui gravida gravida. Nulla non ante sed arcu dapibus mattis.</p>
+		{% for update in updates %}
+			<div class="row-fluid">
+				<div class="span5">
+					<h2>{{ update.name }}</h2>
+				</div>
+				<div class="span2 offset5">
+					<p>{{ update.post_time }}</h2>
+				</div>
+			</div>
+			<p>{{ update.description }}</p>
+			<div class="row-fluid">
+				<div class="span2 offset10">
+					<p>{{ update.poster }}</p>
+				</div>
+			</div>
+		{% endfor %}
 	</div>
 
 	{# Sidebar #}
