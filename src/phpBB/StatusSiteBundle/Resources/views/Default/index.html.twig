@@ -30,7 +30,7 @@
 <div class="row">
 	{# Main Body #}
 	<div class="span8">
-		{% for update in updates %}
+		{% for update in updates|slice(1, 5) %}
 			<div class="row-fluid">
 				<div class="span5">
 					<h2>{{ update.name }}</h2>

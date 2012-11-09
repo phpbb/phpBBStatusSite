@@ -47,13 +47,6 @@ class DefaultController extends Controller
 		}
 
 		$updates_all = $updates->findAll();
-		$show = ($status->findOneByName('show_no')) ?: 5;
-
-		for($i = 0; $i == $show; $i++)
-		{
-                    // No idea what micheal means here, no fixing possible.
-			//$updates_parsed[$i], $updates_all[$i];
-		}
 
 		$template_vars = array(
 			'status'		=> $overall_status, // Minor Outage, Major Outage or Fully Operational
