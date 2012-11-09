@@ -45,10 +45,18 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+
+
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -60,9 +68,12 @@ swiftmailer:
 
 # FOS user configuration.
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: phpBB\StatusSiteBundle\Entity\User
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
 
 sonata_block:
     default_contexts: [cms]

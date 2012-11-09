@@ -23,13 +23,17 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
         "twig/twig": "1.10.*",
-        "friendsofsymfony/user-bundle": "*",
+        "friendsofsymfony/user-bundle": "dev-master@dev",
         "sonata-project/admin-bundle": "dev-master@dev",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master@dev",
         "sonata-project/jquery-bundle": "dev-master@dev",
         "sonata-project/exporter": "dev-master@dev",
         "sonata-project/block-bundle": "dev-master@dev",
-        "sonata-project/cache-bundle": "dev-master@dev"
+        "sonata-project/cache-bundle": "dev-master@dev",
+        "sonata-project/user-bundle": "dev-master@dev",
+        "sonata-project/doctrine-extensions": "dev-master@dev",
+        "sonata-project/easy-extends-bundle": "dev-master@dev",
+        "sonata-project/google-authenticator": "dev-master@dev"
     },
     "scripts": {
         "post-install-cmd": [
