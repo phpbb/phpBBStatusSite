@@ -36,13 +36,13 @@
 					<h2>{{ update.name }}</h2>
 				</div>
 				<div class="span2 offset5">
-					<p>{{ update.post_time }}</h2>
+					<p>{{ update.posttime|date() }}</h2>
 				</div>
 			</div>
 			<p>{{ update.description }}</p>
 			<div class="row-fluid">
 				<div class="span2 offset10">
-					<p>{{ update.poster }}</p>
+					<p>{{ update.userid }}</p>
 				</div>
 			</div>
 		{% endfor %}

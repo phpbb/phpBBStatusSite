@@ -15,7 +15,6 @@ class UpdatesAdmin extends Admin
         $formMapper
             ->add('name')
             ->add('description')
-            ->add('post_time')
             ->add('user_id', null, array('required' => true))
         ;
     }

@@ -58,7 +58,7 @@ class DefaultController extends Controller
 		$template_vars = array(
 			'status'		=> $overall_status, // Minor Outage, Major Outage or Fully Operational
 			'last_check'	=> $last_check,// Datetime of last check
-			'updates'		=> $updates->findAll(array('post_time' => 'DEC')), // Array of updates (). Each top level element of the array contains all information about that update.
+			'updates'		=> $updates->findBy(array(), array('post_time' => 'desc')), // Array of updates (). Each top level element of the array contains all information about that update.
 			//'checks'		=> $checks->get_list(), // List of checks with brief information on 2nd level.
 			'downtime'		=> $downtime, // 0 for up, 1 for
 			'planned'		=> $planned,

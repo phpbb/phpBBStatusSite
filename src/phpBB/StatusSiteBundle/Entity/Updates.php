@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="updates")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Updates
 {
@@ -47,6 +48,14 @@ class Updates
     public function __construct()
     {
         $this->overides = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedValue()
+    {
+        $this->post_time = new \DateTime();
     }
 
     /**
@@ -129,52 +138,6 @@ class Updates
     }
 
     /**
-     * Set poster_id
-     *
-     * @param integer $posterId
-     * @return Updates
-     */
-    public function setPosterId($posterId)
-    {
-        $this->poster_id = $posterId;
-
-        return $this;
-    }
-
-    /**
-     * Get poster_id
-     *
-     * @return integer
-     */
-    public function getPosterId()
-    {
-        return $this->poster_id;
-    }
-
-    /**
-     * Set user_id
-     *
-     * @param Application\Sonata\UserBundle\Entity\User $userId
-     * @return Updates
-     */
-    public function setUserId(\Application\Sonata\UserBundle\Entity\User $userId = null)
-    {
-        $this->user_id = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get user_id
-     *
-     * @return Application\Sonata\UserBundle\Entity\User
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    /**
      * Set overide_id
      *
      * @param phpBB\StatusSiteBundle\Entity\Overides $overideId
@@ -233,5 +196,28 @@ class Updates
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Set user_id
+     *
+     * @param Application\Sonata\UserBundle\Entity\User $userId
+     * @return Updates
+     */
+    public function setUserId(\Application\Sonata\UserBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return Application\Sonata\UserBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
     }
 }
