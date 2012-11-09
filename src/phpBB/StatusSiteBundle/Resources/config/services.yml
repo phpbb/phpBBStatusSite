@@ -5,3 +5,15 @@ services:
 #    php_bb_status_site.example:
 #        class: %php_bb_status_site.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    phpbb_status_site.admin.checks:
+        class: phpBB\StatusSiteBundle\Admin\CheckAdmin
+        arguments: [null, phpBB\StatusSiteBundle\Entity\Checks, 'SonataAdminBundle:CRUD']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Status, label: Checks }
+
+    phpbb_status_site.admin.sites:
+        class: phpBB\StatusSiteBundle\Admin\SitesAdmin
+        arguments: [null, phpBB\StatusSiteBundle\Entity\Sites, 'SonataAdminBundle:CRUD']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Status, label: Sites }
