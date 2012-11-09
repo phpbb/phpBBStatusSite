@@ -25,7 +25,7 @@ class DefaultController extends Controller
 			$downtime = 0;
 			$planned = false;
 		}
-		elseif ($overall_status == 'Major Outage' && $down_type != 'Planned') 
+		elseif ($overall_status == 'Major Outage' && $down_type != 'Planned')
 		{
 			$downtime = 1;
 			$planned = false;
@@ -35,7 +35,7 @@ class DefaultController extends Controller
 			$downtime = 2;
 			$planned = true;
 		}
-		elseif ($overall_status == 'Minor Outage' && $down_type != 'Planned') 
+		elseif ($overall_status == 'Minor Outage' && $down_type != 'Planned')
 		{
 			$downtime = 3;
 			$planned = false;
@@ -49,9 +49,10 @@ class DefaultController extends Controller
 		$updates_all = $updates->findAll();
 		$show = ($status->findOneByName('show_no')) ?: 5;
 
-		for($i = 0, $i == $show, $i++)
+		for($i = 0; $i == $show; $i++)
 		{
-			$updates_parsed[$i], $updates_all[$i]
+                    // No idea what micheal means here, no fixing possible.
+			//$updates_parsed[$i], $updates_all[$i];
 		}
 
 		$template_vars = array(
