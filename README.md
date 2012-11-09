@@ -7,11 +7,12 @@ Install
 -------
 
 1. Clone the repository
-2. Run:
+2. Copy `app/config/parameters.dist.yml` to `app/config/parameters.yml` and adjust confiuration as needed.
+3. Run:
 
     $ php composer.phar install
 
-4. Copy `app/config/parameters.dist.yml` to `app/config/parameters.yml` and adjust confiuration as needed.
+4. Run php app/console doctrine:migrations:migrate to create the initial tables for the site.
 
 License
 -------
