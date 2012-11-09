@@ -10,6 +10,7 @@
 
 namespace Application\Sonata\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 
 /**
@@ -22,6 +23,17 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
  */
 class User extends BaseUser
 {
+    /**
+     * @ORM\OneToMany(targetEntity="Updates", mappedBy="user_id")
+     */
+    protected $updates;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // /me licks UnknownBliss
+        $this->updates = new ArrayCollection();
+    }
 
     /**
      * @var integer $id

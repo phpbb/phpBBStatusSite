@@ -17,3 +17,15 @@ services:
         arguments: [null, phpBB\StatusSiteBundle\Entity\Sites, 'SonataAdminBundle:CRUD']
         tags:
             - { name: sonata.admin, manager_type: orm, group: Status, label: Sites }
+
+    phpbb_status_site.admin.overides:
+        class: phpBB\StatusSiteBundle\Admin\OveridesAdmin
+        arguments: [null, phpBB\StatusSiteBundle\Entity\Overides, 'SonataAdminBundle:CRUD']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Status, label: Overides }
+
+    phpbb_status_site.admin.updates:
+        class: phpBB\StatusSiteBundle\Admin\UpdatesAdmin
+        arguments: [null, phpBB\StatusSiteBundle\Entity\Updates, 'SonataAdminBundle:CRUD']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Status, label: Updates }

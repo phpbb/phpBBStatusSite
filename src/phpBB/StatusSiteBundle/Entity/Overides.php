@@ -3,6 +3,7 @@
 namespace phpBB\StatusSiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -18,9 +19,10 @@ class Overides
 	protected $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
+     * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
      */
-	protected $site_id;
+    protected $site_id;
 
 	/**
 	 * @ORM\Column(type="datetime")
@@ -33,19 +35,24 @@ class Overides
 	protected $end_time;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Updates", inversedBy="updates")
+     * @ORM\JoinColumn(name="update_id", referencedColumnName="id")
      */
-	protected $update_id;
+        protected $update_id;
 
     /**
      * @ORM\Column(type="boolean")
      */
 	protected $up_down;
 
+    function __construct()
+    {
+
+    }
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -61,14 +68,14 @@ class Overides
     public function setSiteId($siteId)
     {
         $this->site_id = $siteId;
-    
+
         return $this;
     }
 
     /**
      * Get site_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getSiteId()
     {
@@ -84,14 +91,14 @@ class Overides
     public function setStartTime($startTime)
     {
         $this->start_time = $startTime;
-    
+
         return $this;
     }
 
     /**
      * Get start_time
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStartTime()
     {
@@ -107,14 +114,14 @@ class Overides
     public function setEndTime($endTime)
     {
         $this->end_time = $endTime;
-    
+
         return $this;
     }
 
     /**
      * Get end_time
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndTime()
     {
@@ -130,14 +137,14 @@ class Overides
     public function setUpdateId($updateId)
     {
         $this->update_id = $updateId;
-    
+
         return $this;
     }
 
     /**
      * Get update_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getUpdateId()
     {
@@ -153,17 +160,50 @@ class Overides
     public function setUpDown($upDown)
     {
         $this->up_down = $upDown;
-    
+
         return $this;
     }
 
     /**
      * Get up_down
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getUpDown()
     {
         return $this->up_down;
+    }
+
+    /**
+     * Add sites
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Sites $sites
+     * @return Overides
+     */
+    public function addSite(\phpBB\StatusSiteBundle\Entity\Sites $sites)
+    {
+        $this->sites[] = $sites;
+
+        return $this;
+    }
+
+    /**
+     * Remove sites
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Sites $sites
+     */
+    public function removeSite(\phpBB\StatusSiteBundle\Entity\Sites $sites)
+    {
+        $this->sites->removeElement($sites);
+    }
+
+    /**
+     * Get sites
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getSites()
+    {
+        return $this->sites;
     }
 }

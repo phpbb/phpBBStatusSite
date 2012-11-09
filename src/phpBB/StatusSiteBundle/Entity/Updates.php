@@ -3,6 +3,7 @@
 namespace phpBB\StatusSiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -33,14 +34,25 @@ class Updates
 	protected $post_time;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="Overides", mappedBy="update_id")
      */
-	protected $poster_id;
+     protected $overides;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\Application\Sonata\UserBundle\Entity\User", inversedBy="updates")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+	protected $user_id;
+
+    public function __construct()
+    {
+        $this->overides = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -56,14 +68,14 @@ class Updates
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -79,14 +91,14 @@ class Updates
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -102,14 +114,14 @@ class Updates
     public function setPostTime($postTime)
     {
         $this->post_time = $postTime;
-    
+
         return $this;
     }
 
     /**
      * Get post_time
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getPostTime()
     {
@@ -125,17 +137,101 @@ class Updates
     public function setPosterId($posterId)
     {
         $this->poster_id = $posterId;
-    
+
         return $this;
     }
 
     /**
      * Get poster_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosterId()
     {
         return $this->poster_id;
+    }
+
+    /**
+     * Set user_id
+     *
+     * @param Application\Sonata\UserBundle\Entity\User $userId
+     * @return Updates
+     */
+    public function setUserId(\Application\Sonata\UserBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return Application\Sonata\UserBundle\Entity\User
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Set overide_id
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Overides $overideId
+     * @return Updates
+     */
+    public function setOverideId(\phpBB\StatusSiteBundle\Entity\Overides $overideId = null)
+    {
+        $this->overide_id = $overideId;
+
+        return $this;
+    }
+
+    /**
+     * Get overide_id
+     *
+     * @return phpBB\StatusSiteBundle\Entity\Overides
+     */
+    public function getOverideId()
+    {
+        return $this->overide_id;
+    }
+
+    /**
+     * Add overides
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Overides $overides
+     * @return Updates
+     */
+    public function addOveride(\phpBB\StatusSiteBundle\Entity\Overides $overides)
+    {
+        $this->overides[] = $overides;
+
+        return $this;
+    }
+
+    /**
+     * Remove overides
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Overides $overides
+     */
+    public function removeOveride(\phpBB\StatusSiteBundle\Entity\Overides $overides)
+    {
+        $this->overides->removeElement($overides);
+    }
+
+    /**
+     * Get overides
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getOverides()
+    {
+        return $this->overides;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

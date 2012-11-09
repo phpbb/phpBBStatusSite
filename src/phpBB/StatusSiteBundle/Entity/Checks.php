@@ -18,7 +18,8 @@ class Checks
 	protected $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
+     * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
      */
     protected $site_id;
 
@@ -45,7 +46,7 @@ class Checks
     /**
      * @ORM\Column(type="integer")
      */
-	protected $check_inverval;
+	protected $check_interval;
 
     /**
      * @ORM\Column(type="string", length=32)
@@ -75,7 +76,7 @@ class Checks
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -91,14 +92,14 @@ class Checks
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -114,14 +115,14 @@ class Checks
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -137,14 +138,14 @@ class Checks
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -160,14 +161,14 @@ class Checks
     public function setPort($port)
     {
         $this->port = $port;
-    
+
         return $this;
     }
 
     /**
      * Get port
      *
-     * @return integer 
+     * @return integer
      */
     public function getPort()
     {
@@ -180,21 +181,21 @@ class Checks
      * @param integer $checkInverval
      * @return Site
      */
-    public function setCheckInverval($checkInverval)
+    public function setCheckInterval($checkInterval)
     {
-        $this->check_inverval = $checkInverval;
-    
+        $this->check_interval = $checkInterval;
+
         return $this;
     }
 
     /**
-     * Get check_inverval
+     * Get check_interval
      *
-     * @return integer 
+     * @return integer
      */
-    public function getCheckInverval()
+    public function getCheckInterval()
     {
-        return $this->check_inverval;
+        return $this->check_interval;
     }
 
     /**
@@ -206,14 +207,14 @@ class Checks
     public function setRequiredMd5($requiredMd5)
     {
         $this->required_md5 = $requiredMd5;
-    
+
         return $this;
     }
 
     /**
      * Get required_md5
      *
-     * @return string 
+     * @return string
      */
     public function getRequiredMd5()
     {
@@ -229,14 +230,14 @@ class Checks
     public function setIp($ip)
     {
         $this->ip = $ip;
-    
+
         return $this;
     }
 
     /**
      * Get ip
      *
-     * @return string 
+     * @return string
      */
     public function getIp()
     {
@@ -252,14 +253,14 @@ class Checks
     public function setUrl($url)
     {
         $this->url = $url;
-    
+
         return $this;
     }
 
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
@@ -275,14 +276,14 @@ class Checks
     public function setTimeout($timeout)
     {
         $this->timeout = $timeout;
-    
+
         return $this;
     }
 
     /**
      * Get timeout
      *
-     * @return integer 
+     * @return integer
      */
     public function getTimeout()
     {
@@ -298,14 +299,14 @@ class Checks
     public function setStatusCode($statusCode)
     {
         $this->status_code = $statusCode;
-    
+
         return $this;
     }
 
     /**
      * Get status_code
      *
-     * @return integer 
+     * @return integer
      */
     public function getStatusCode()
     {
@@ -321,17 +322,40 @@ class Checks
     public function setSiteId($siteId)
     {
         $this->site_id = $siteId;
-    
+
         return $this;
     }
 
     /**
      * Get site_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getSiteId()
     {
         return $this->site_id;
+    }
+
+    /**
+     * Set site
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Sites $site
+     * @return Checks
+     */
+    public function setSite(\phpBB\StatusSiteBundle\Entity\Sites $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return phpBB\StatusSiteBundle\Entity\Sites
+     */
+    public function getSite()
+    {
+        return $this->site;
     }
 }
