@@ -74,6 +74,16 @@ class Checks
 	protected $status_code;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+     protected $status;
+
+     /**
+      * @ORM\Column(type="datetime", nullable=true)
+      */
+     protected $check_time;
+
+    /**
      * Get id
      *
      * @return integer
@@ -357,5 +367,51 @@ class Checks
     public function getSite()
     {
         return $this->site;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Checks
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set check_time
+     *
+     * @param \DateTime $checkTime
+     * @return Checks
+     */
+    public function setCheckTime($checkTime)
+    {
+        $this->check_time = $checkTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get check_time
+     *
+     * @return \DateTime 
+     */
+    public function getCheckTime()
+    {
+        return $this->check_time;
     }
 }

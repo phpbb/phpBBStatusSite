@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="sites")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Sites
 {
@@ -53,6 +54,19 @@ class Sites
      * @ORM\Column(type="boolean")
      */
     protected $front_page;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $status;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedValue()
+    {
+        $this->status = "Unknown";
+    }
 
     public function __construct()
     {
@@ -254,5 +268,28 @@ class Sites
     public function getOverides()
     {
         return $this->overides;
+    }
+
+    /**
+     * Set status
+     *
+     * @param status $status
+     * @return Sites
+     */
+    public function setStatus(\status $status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
