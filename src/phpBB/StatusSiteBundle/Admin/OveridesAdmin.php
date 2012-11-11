@@ -17,6 +17,7 @@ class OveridesAdmin extends Admin
             ->add('start_time')
             ->add('end_time')
             ->add('update_id', null, array('required' => true))
+            ->add('finished')
 //            ->add('enabled', null, array('required' => false))
         ;
     }
@@ -38,6 +39,7 @@ class OveridesAdmin extends Admin
             ->add('site_id')
             ->add('start_time')
             ->add('end_time')
+            ->add('finished', null, array('editable' => true))
 //            ->add('enabled')
         ;
     }

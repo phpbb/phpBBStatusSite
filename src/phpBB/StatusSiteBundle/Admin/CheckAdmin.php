@@ -24,6 +24,7 @@ class CheckAdmin extends Admin
             ->add('url')
             ->add('timeout')
             ->add('status_code')
+            ->add('status')
 
 
 

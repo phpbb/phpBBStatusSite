@@ -2,6 +2,9 @@ homepage:
     pattern:  /
     defaults: { _controller: phpBBStatusSiteBundle:Default:index }
 
+site:
+    pattern: /site/{slug}
+    defaults: { _controller: phpBBStatusSiteBundle:Default:site }
 purge:
     pattern: /purge/
     defaults: { _controller: phpBBStatusSiteBundle:Default:purge }

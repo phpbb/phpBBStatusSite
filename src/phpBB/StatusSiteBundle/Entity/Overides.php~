@@ -211,27 +211,4 @@ class Overides
     {
         return $this->sites;
     }
-
-    /**
-     * Set finished
-     *
-     * @param boolean $finished
-     * @return Overides
-     */
-    public function setFinished($finished)
-    {
-        $this->finished = $finished;
-    
-        return $this;
-    }
-
-    /**
-     * Get finished
-     *
-     * @return boolean 
-     */
-    public function getFinished()
-    {
-        return $this->finished;
-    }
 }

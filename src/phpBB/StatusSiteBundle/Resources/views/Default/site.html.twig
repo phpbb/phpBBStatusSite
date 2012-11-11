@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ parent() }} - Home{% endblock %}
+
+{% block body %}
+{# Main Block #}
+<div class="hero-unit" id="site">
+    <h1>{{ site.name }}</h1>
+    <p>{{ site.description }}</p>
+</div>
+
+<div class="row">
+	{# Main Body #}
+	<div class="span8">
+            {% for check in site.checks %}
+                <div class="hero-unit">
+                    <h2>{{ check.name }}</h2>
+                    <p>{{ check.description }}<br />{{ check.status }}, on {{ check.checktime|date}}
+                </div>
+            {% endfor %}
+	</div>
+
+	{# Sidebar #}
+
+	<div class="span4">
+            <h2>Planned downtime</h2>
+            {% for overides in site.overides %}
+                {% if overides.endtime >= now or not overides.finished %}
+                <div class="hero-unit">
+                    <h4>{{ overides.updateid.name }}</h4>
+                    <p>
+                        {{ overides.updateid.description }} <br />
+                        Start: {{ overides.starttime|date }}<br />
+                        End: {{ overides.endtime|date }}<br />
+                        Finished: {% if overides.finished %}Yes{% else %}No{% endif %}
+                    </p>
+                </div>
+                {% endif %}
+            {% endfor %}
+	</div>
+</div>
+
+{% endblock %}

@@ -6,19 +6,19 @@
 {{ parent() }}
 <style type="text/css">
 	{% if status == "Minor Outage" %}
-		.hero-unit {background-color:#FAD090;}
-	{% elseif status == "Major Outage" %}
-		.hero-unit {background-color:rgba(235, 7, 7, 0.69);}
-	{% elseif status == "Fully Operational" %}
-		.hero-unit {background-color:#A9FA90;}
+		#status {background-color:#FAD090;}
+        {% elseif status == "Fully Operational" %}
+                #status {background-color:#A9FA90;}
+	{% else %}
+		#status {background-color:rgba(235, 7, 7, 0.69);}
 	{% endif %}
 </style>
 {% endblock %}
 
 {% block body %}
 {# Main Block #}
-<div class="hero-unit">
-	<h1>{{ status }}</h1>
+<div class="hero-unit" id="status">
+	<h1>{% if planned %}(Planned) {% endif %}{{ status }}</h1>
 	<p>
 		<br /><br />
 		{% if downtime %}
@@ -35,6 +35,7 @@
 	{# Main Body #}
 	<div class="span8">
 		{% for update in updates %}
+                    <div class="hero-unit">
 			<div class="row-fluid">
 				<div class="span5">
 					<h2>{{ update.name }}</h2>
@@ -49,17 +50,21 @@
 					<p>{{ update.userid }}</p>
 				</div>
 			</div>
+                    </div>
 		{% endfor %}
 	</div>
 
 	{# Sidebar #}
+
 	<div class="span4">
+            <div class="hero-unit">
             {% for site in sites %}
                 <div class="row">
-                    <h4>{{ site.name }}</h4>
+                    <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
                     {{ site.status }}
                 </div>
             {% endfor %}
+            </div>
 	</div>
 </div>
 
