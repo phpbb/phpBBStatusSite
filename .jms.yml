@@ -1,0 +1,3 @@
+default_config:
+    use_statement_fixes:
+        preserve_multiple: true
