@@ -57,6 +57,11 @@ class Sites {
 	 * @ORM\Column(type="string")
 	 */
 	protected $status;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	protected $statusCode;
 
 	/**
 	 * @ORM\Column(type="boolean");
@@ -275,4 +280,50 @@ class Sites {
 	public function getStatus() {
 		return $this->status;
 	}
+
+    /**
+     * Set major
+     *
+     * @param boolean $major
+     * @return Sites
+     */
+    public function setMajor($major)
+    {
+        $this->major = $major;
+    
+        return $this;
+    }
+
+    /**
+     * Get major
+     *
+     * @return boolean 
+     */
+    public function getMajor()
+    {
+        return $this->major;
+    }
+
+    /**
+     * Set statusCode
+     *
+     * @param boolean $statusCode
+     * @return Sites
+     */
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = $statusCode;
+    
+        return $this;
+    }
+
+    /**
+     * Get statusCode
+     *
+     * @return boolean 
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
 }

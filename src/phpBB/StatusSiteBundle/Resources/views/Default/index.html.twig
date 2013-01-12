@@ -5,10 +5,11 @@
 {% block stylesheets %}
 {{ parent() }}
 <style type="text/css">
-	{% if status == "Minor Outage" %}
-		#status {background-color:#FAD090;}
-        {% elseif status == "Fully Operational" %}
+    {% if not downtime %}
                 #status {background-color:#A9FA90;}
+	{% elseif not major %}
+		#status {background-color:#FAD090;}
+
 	{% else %}
 		#status {background-color:rgba(235, 7, 7, 0.69);}
 	{% endif %}
@@ -18,7 +19,7 @@
 {% block body %}
 {# Main Block #}
 <div class="hero-unit" id="status">
-	<h1>{% if planned %}(Planned) {% endif %}{{ status }}</h1>
+	<h1>{{ status }}</h1>
 	<p>
 		<br /><br />
 		{% if downtime %}
@@ -27,6 +28,8 @@
                     {% else %}
                             A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
                     {% endif %}
+        {% else %}
+        	Everything is working perfectly fine. We keep our trained monkeys around too make sure nothing happens.
 		{% endif %}
 	</p>
 </div>

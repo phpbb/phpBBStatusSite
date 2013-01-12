@@ -13,3 +13,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+    
+    pingdom_user:           ~
+    pingdom_password:       ~
+    pingdom_token:          ~    
