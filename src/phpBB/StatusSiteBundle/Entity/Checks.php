@@ -9,93 +9,67 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="checks")
  * @ORM\HasLifecycleCallbacks()
  */
-class Checks
-{
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+class Checks {
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
 	protected $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
-     * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
-     */
-    protected $site_id;
+	/**
+	 * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
+	 * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
+	 */
+	protected $site_id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
 	protected $name;
 
-    /**
-     * @ORM\Column(type="text")
-     */
+	/**
+	 * @ORM\Column(type="text")
+	 */
 	protected $description;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
 	protected $slug;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-	protected $port;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-	protected $check_interval;
-
-    /**
-     * @ORM\Column(type="string", length=32)
-     */
-	protected $required_md5;
-
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-	protected $ip;
-
-    /**
-     * @ORM\Column(type="string", length=2083)
-     */
-	protected $url;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-	protected $timeout;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
+	/**
+	 * @ORM\Column(type="boolean", nullable=true)
+	 */
 	protected $status_code;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-     protected $status;
+	/**
+	 * @ORM\Column(type="string", nullable=true)
+	 */
+	protected $status;
 
-     /**
-      * @ORM\Column(type="datetime", nullable=true)
-      */
-     protected $check_time;
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $check_time;
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedValue()
-    {
-        $this->status = "Unknown";
-    }
+	/**
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	protected $pingdom_id;
+
+	/**
+	 * @ORM\PrePersist
+	 */
+	public function setCreatedValue() {
+		$this->status = "Unknown";
+	}
+
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -106,19 +80,19 @@ class Checks
      * Set name
      *
      * @param string $name
-     * @return Site
+     * @return Checks
      */
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -129,19 +103,19 @@ class Checks
      * Set description
      *
      * @param string $description
-     * @return Site
+     * @return Checks
      */
     public function setDescription($description)
     {
         $this->description = $description;
-
+    
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string
+     * @return string 
      */
     public function getDescription()
     {
@@ -152,19 +126,19 @@ class Checks
      * Set slug
      *
      * @param string $slug
-     * @return Site
+     * @return Checks
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
-
+    
         return $this;
     }
 
     /**
      * Get slug
      *
-     * @return string
+     * @return string 
      */
     public function getSlug()
     {
@@ -172,114 +146,22 @@ class Checks
     }
 
     /**
-     * Set port
-     *
-     * @param integer $port
-     * @return Site
-     */
-    public function setPort($port)
-    {
-        $this->port = $port;
-
-        return $this;
-    }
-
-    /**
-     * Get port
-     *
-     * @return integer
-     */
-    public function getPort()
-    {
-        return $this->port;
-    }
-
-    /**
-     * Set check_inverval
-     *
-     * @param integer $checkInverval
-     * @return Site
-     */
-    public function setCheckInterval($checkInterval)
-    {
-        $this->check_interval = $checkInterval;
-
-        return $this;
-    }
-
-    /**
-     * Get check_interval
-     *
-     * @return integer
-     */
-    public function getCheckInterval()
-    {
-        return $this->check_interval;
-    }
-
-    /**
-     * Set required_md5
-     *
-     * @param string $requiredMd5
-     * @return Site
-     */
-    public function setRequiredMd5($requiredMd5)
-    {
-        $this->required_md5 = $requiredMd5;
-
-        return $this;
-    }
-
-    /**
-     * Get required_md5
-     *
-     * @return string
-     */
-    public function getRequiredMd5()
-    {
-        return $this->required_md5;
-    }
-
-    /**
-     * Set ip
-     *
-     * @param string $ip
-     * @return Site
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Get ip
-     *
-     * @return string
-     */
-    public function getIp()
-    {
-        return $this->ip;
-    }
-
-    /**
      * Set url
      *
      * @param string $url
-     * @return Site
+     * @return Checks
      */
     public function setUrl($url)
     {
         $this->url = $url;
-
+    
         return $this;
     }
 
     /**
      * Get url
      *
-     * @return string
+     * @return string 
      */
     public function getUrl()
     {
@@ -287,95 +169,26 @@ class Checks
     }
 
     /**
-     * Set timeout
-     *
-     * @param integer $timeout
-     * @return Site
-     */
-    public function setTimeout($timeout)
-    {
-        $this->timeout = $timeout;
-
-        return $this;
-    }
-
-    /**
-     * Get timeout
-     *
-     * @return integer
-     */
-    public function getTimeout()
-    {
-        return $this->timeout;
-    }
-
-    /**
      * Set status_code
      *
-     * @param integer $statusCode
-     * @return Site
+     * @param boolean $statusCode
+     * @return Checks
      */
     public function setStatusCode($statusCode)
     {
         $this->status_code = $statusCode;
-
+    
         return $this;
     }
 
     /**
      * Get status_code
      *
-     * @return integer
+     * @return boolean 
      */
     public function getStatusCode()
     {
         return $this->status_code;
-    }
-
-    /**
-     * Set site_id
-     *
-     * @param integer $siteId
-     * @return Site
-     */
-    public function setSiteId($siteId)
-    {
-        $this->site_id = $siteId;
-
-        return $this;
-    }
-
-    /**
-     * Get site_id
-     *
-     * @return integer
-     */
-    public function getSiteId()
-    {
-        return $this->site_id;
-    }
-
-    /**
-     * Set site
-     *
-     * @param phpBB\StatusSiteBundle\Entity\Sites $site
-     * @return Checks
-     */
-    public function setSite(\phpBB\StatusSiteBundle\Entity\Sites $site = null)
-    {
-        $this->site = $site;
-
-        return $this;
-    }
-
-    /**
-     * Get site
-     *
-     * @return phpBB\StatusSiteBundle\Entity\Sites
-     */
-    public function getSite()
-    {
-        return $this->site;
     }
 
     /**
@@ -387,14 +200,14 @@ class Checks
     public function setStatus($status)
     {
         $this->status = $status;
-
+    
         return $this;
     }
 
     /**
      * Get status
      *
-     * @return string
+     * @return string 
      */
     public function getStatus()
     {
@@ -410,17 +223,63 @@ class Checks
     public function setCheckTime($checkTime)
     {
         $this->check_time = $checkTime;
-
+    
         return $this;
     }
 
     /**
      * Get check_time
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getCheckTime()
     {
         return $this->check_time;
+    }
+
+    /**
+     * Set pingdom_id
+     *
+     * @param integer $pingdomId
+     * @return Checks
+     */
+    public function setPingdomId($pingdomId)
+    {
+        $this->pingdom_id = $pingdomId;
+    
+        return $this;
+    }
+
+    /**
+     * Get pingdom_id
+     *
+     * @return integer 
+     */
+    public function getPingdomId()
+    {
+        return $this->pingdom_id;
+    }
+
+    /**
+     * Set site_id
+     *
+     * @param \phpBB\StatusSiteBundle\Entity\Sites $siteId
+     * @return Checks
+     */
+    public function setSiteId(\phpBB\StatusSiteBundle\Entity\Sites $siteId = null)
+    {
+        $this->site_id = $siteId;
+    
+        return $this;
+    }
+
+    /**
+     * Get site_id
+     *
+     * @return \phpBB\StatusSiteBundle\Entity\Sites 
+     */
+    public function getSiteId()
+    {
+        return $this->site_id;
     }
 }

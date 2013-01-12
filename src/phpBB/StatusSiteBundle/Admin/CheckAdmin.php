@@ -17,16 +17,7 @@ class CheckAdmin extends Admin
             ->add('name')
             ->add('slug')
             ->add('description')
-            ->add('port')
-            ->add('check_interval')
-            ->add('required_md5')
-            ->add('ip')
-            ->add('url')
-            ->add('timeout')
-            ->add('status_code')
-            ->add('status')
-
-
+            ->add('pingdom_id')
 
 //            ->add('enabled', null, array('required' => false))
         ;
@@ -39,13 +30,8 @@ class CheckAdmin extends Admin
             ->add('name')
             ->add('slug')
             ->add('description')
-            ->add('port')
-            ->add('check_interval')
-            ->add('required_md5')
-            ->add('ip')
-            ->add('url')
-            ->add('timeout')
-            ->add('status_code')
+            ->add('status')
+            
 
 //            ->add('posts')
         ;
@@ -56,7 +42,7 @@ class CheckAdmin extends Admin
         $listMapper
             ->addIdentifier('name')
             ->add('site_id')
-            ->add('port')
+            ->add('status')
 //            ->add('enabled')
         ;
     }
