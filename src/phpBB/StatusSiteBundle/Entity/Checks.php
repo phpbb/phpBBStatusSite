@@ -57,6 +57,12 @@ class Checks {
 	 * @ORM\Column(type="integer", nullable=true)
 	 */
 	protected $pingdom_id;
+	
+	/**
+	 * 
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	protected $lastresponse;
 
 	/**
 	 * @ORM\PrePersist
@@ -281,5 +287,28 @@ class Checks {
     public function getSiteId()
     {
         return $this->site_id;
+    }
+
+    /**
+     * Set lastresponse
+     *
+     * @param integer $lastresponse
+     * @return Checks
+     */
+    public function setLastresponse($lastresponse)
+    {
+        $this->lastresponse = $lastresponse;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastresponse
+     *
+     * @return integer 
+     */
+    public function getLastresponse()
+    {
+        return $this->lastresponse;
     }
 }
