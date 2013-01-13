@@ -59,12 +59,12 @@ class Sites {
 	protected $status;
 	
 	/**
-	 * @ORM\Column(type="boolean")
+	 * @ORM\Column(type="boolean", nullable=true)
 	 */
 	protected $statusCode;
 
 	/**
-	 * @ORM\Column(type="boolean", nullable=true);
+	 * @ORM\Column(type="boolean");
 	 */
 	protected $major;
 
