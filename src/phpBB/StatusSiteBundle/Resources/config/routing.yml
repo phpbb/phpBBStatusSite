@@ -5,6 +5,11 @@ homepage:
 site:
     pattern: /site/{slug}
     defaults: { _controller: phpBBStatusSiteBundle:Default:site }
+    
+contact:
+    pattern: /contact
+    defaults: { _controller: phpBBStatusSiteBundle:Default:contact }
+        
 purge:
     pattern: /purge/
     defaults: { _controller: phpBBStatusSiteBundle:Default:purge }

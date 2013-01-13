@@ -67,6 +67,12 @@ class Sites {
 	 * @ORM\Column(type="boolean");
 	 */
 	protected $major;
+	
+	/**
+	 * @ORM\Column(type="boolean");
+	 */
+	protected $team;
+	
 
 	/**
 	 * @ORM\PrePersist
@@ -325,5 +331,28 @@ class Sites {
     public function getStatusCode()
     {
         return $this->statusCode;
+    }
+
+    /**
+     * Set team
+     *
+     * @param boolean $team
+     * @return Sites
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return boolean 
+     */
+    public function getTeam()
+    {
+        return $this->team;
     }
 }

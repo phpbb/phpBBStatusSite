@@ -19,6 +19,7 @@ class SitesAdmin extends Admin
             ->add('url')
             ->add('front_page', null, array('required' => false))
             ->add('major', null, array('required' => false))
+            ->add('team', null, array('required' => false))
 //            ->add('enabled', null, array('required' => false))
         ;
     }
