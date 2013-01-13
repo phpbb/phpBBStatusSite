@@ -16,7 +16,7 @@
                 <div class="hero-unit">
                     <h2>{{ check.name }}</h2>
                     <p>{{ check.description }}<br />{{ check.status }}, on {{ check.checktime|date}}<br />
-                    Last response time: {% if check.lastresponse and check.lastresponse != -1 %}{{ check.lastresponse }}{% else %}Unknown{% endif %}.
+                    Last response time: {% if check.lastresponse and check.lastresponse != -1 %}{{ check.lastresponse }}ms{% else %}Unknown{% endif %}.
                     </p>
                 </div>
             {% endfor %}
