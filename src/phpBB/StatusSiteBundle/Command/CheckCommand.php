@@ -63,14 +63,17 @@ class CheckCommand extends Command {
 				$status = $this->checkId($pingdom);
 
 				if ($status === false) {
-					$status = array('check.lasttesttime' => time(),
-							'check.lastresponsetime' => -1,
-							'check.status' => 'down',);
+					$status = array('check' => array(
+								'lasttesttime' => time(),
+								'lastresponsetime' => -1,
+								'status' => 'down',
+							)
+						);
 				}
 
 				$up = false;
 
-				switch ($status['check.status']) {
+				switch ($status['check']['status']) {
 				case 'down':
 				case 'unconfirmed_down':
 					$st = 'Down';
@@ -106,7 +109,7 @@ class CheckCommand extends Command {
 					$output
 							->writeln(
 									"Unknown status: "
-											. $status['check.status']);
+											. $status['check']['status']);
 				}
 
 				$output->writeln("Status: " . $st . " Up: " . (int) $up);
@@ -131,7 +134,7 @@ class CheckCommand extends Command {
 				$check
 						->setCheckTime(
 								new \DateTime(
-										'@' . $status['check.lasttesttime']));
+										'@' . $status['check']['lasttesttime']));
 
 				$em->persist($check);
 			}
@@ -207,16 +210,28 @@ class CheckCommand extends Command {
 		// Set the desired HTTP method (GET is default, see the documentation for each request)
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 		// Set user (email) and password
+		
+		$this->output->writeln("pass: " . $container->getParameter("pingdom_password"));
+		
 		curl_setopt($curl, CURLOPT_USERPWD,
 				$container->getParameter("pingdom_user") . ":"
 						. $container->getParameter("pingdom_password"));
+						
 		// Add a http header containing the application key (see the Authentication section of this document)
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
-				array("App-Key: " . $container->getParameter("pingdom_token")));
+				array(
+					"App-Key: " . $container->getParameter("pingdom_token"),
+				));
 		// Ask cURL to return the result as a string
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		// Set timeout on the pingdom call
 		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+		
+		
+		
+		//REMOVE ME!!!!!!!
+		// curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($curl, CURLOPT_VERBOSE, true);
 
 		$data = curl_exec($curl);
 
