@@ -13,6 +13,11 @@
 	{% else %}
 		#status {background-color:rgba(235, 7, 7, 0.69);}
 	{% endif %}
+	.span4 .hero-unit h2
+	{
+		margin-left: -30px;
+	}
+	
 </style>
 {% endblock %}
 
@@ -37,30 +42,34 @@
 				{% endif %}
 			</p>
 		</div>	
-		{% for update in updates %}
-	        <div class="hero-unit">
-				<div class="row-fluid">
-					<div class="span5">
-						<h2>{{ update.name }}</h2>
+		{% if updates %}
+			<h2>Latest updates</h2>
+			{% for update in updates %}
+		        <div class="hero-unit">
+					<div class="row-fluid">
+						<div class="span5">
+							<h2>{{ update.name }}</h2>
+						</div>
+						<div class="span2 offset5">
+							<p>{{ update.posttime|date() }}</h2>
+						</div>
 					</div>
-					<div class="span2 offset5">
-						<p>{{ update.posttime|date() }}</h2>
+					<p>{{ update.description }}</p>
+					<div class="row-fluid">
+						<div class="span2 offset10">
+							<p>{{ update.userid }}</p>
+						</div>
 					</div>
-				</div>
-				<p>{{ update.description }}</p>
-				<div class="row-fluid">
-					<div class="span2 offset10">
-						<p>{{ update.userid }}</p>
-					</div>
-				</div>
-	        </div>
-		{% endfor %}
+		        </div>
+			{% endfor %}
+		{% endif %}
 		</div>
 
 	{# Sidebar #}
 
 	<div class="span4">
         <div class="hero-unit">
+        <h2>Services</h2>
         {% for site in sites %}
             <div class="row">
                 <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
