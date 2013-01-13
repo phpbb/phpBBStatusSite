@@ -64,7 +64,7 @@ class Sites {
 	protected $statusCode;
 
 	/**
-	 * @ORM\Column(type="boolean");
+	 * @ORM\Column(type="boolean", nullable=true);
 	 */
 	protected $major;
 
