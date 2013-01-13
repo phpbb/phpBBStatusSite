@@ -18,56 +18,56 @@
 
 {% block body %}
 {# Main Block #}
-<div class="hero-unit" id="status">
-	<h1>{{ status }}</h1>
-	<p>
-		<br /><br />
-		{% if downtime %}
-                    {% if planned == 1 %}
-                            A team of highly trained monkeys is doing maintainence on our site, we should be back soon
-                    {% else %}
-                            A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
-                    {% endif %}
-        {% else %}
-        	Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
-		{% endif %}
-	</p>
-</div>
 
 <div class="row">
 	{# Main Body #}
 	<div class="span8">
+		<div class="hero-unit" id="status">
+			<h1>{{ status }}</h1>
+			<p>
+				<br /><br />
+				{% if downtime %}
+		                    {% if planned == 1 %}
+		                            A team of highly trained monkeys is doing maintainence on our site, we should be back soon
+		                    {% else %}
+		                            A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
+		                    {% endif %}
+		        {% else %}
+		        	Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
+				{% endif %}
+			</p>
+		</div>	
 		{% for update in updates %}
-                    <div class="hero-unit">
-			<div class="row-fluid">
-				<div class="span5">
-					<h2>{{ update.name }}</h2>
+	        <div class="hero-unit">
+				<div class="row-fluid">
+					<div class="span5">
+						<h2>{{ update.name }}</h2>
+					</div>
+					<div class="span2 offset5">
+						<p>{{ update.posttime|date() }}</h2>
+					</div>
 				</div>
-				<div class="span2 offset5">
-					<p>{{ update.posttime|date() }}</h2>
+				<p>{{ update.description }}</p>
+				<div class="row-fluid">
+					<div class="span2 offset10">
+						<p>{{ update.userid }}</p>
+					</div>
 				</div>
-			</div>
-			<p>{{ update.description }}</p>
-			<div class="row-fluid">
-				<div class="span2 offset10">
-					<p>{{ update.userid }}</p>
-				</div>
-			</div>
-                    </div>
+	        </div>
 		{% endfor %}
-	</div>
+		</div>
 
 	{# Sidebar #}
 
 	<div class="span4">
-            <div class="hero-unit">
-            {% for site in sites %}
-                <div class="row">
-                    <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
-                    {{ site.status }}
-                </div>
-            {% endfor %}
+        <div class="hero-unit">
+        {% for site in sites %}
+            <div class="row">
+                <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
+                {{ site.status }}
             </div>
+        {% endfor %}
+    	</div>
 	</div>
 </div>
 
