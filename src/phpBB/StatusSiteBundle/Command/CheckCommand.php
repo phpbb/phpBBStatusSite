@@ -211,9 +211,7 @@ class CheckCommand extends Command {
 		// Set the desired HTTP method (GET is default, see the documentation for each request)
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 		// Set user (email) and password
-		
-		$this->output->writeln("pass: " . $container->getParameter("pingdom_password"));
-		
+				
 		curl_setopt($curl, CURLOPT_USERPWD,
 				$container->getParameter("pingdom_user") . ":"
 						. $container->getParameter("pingdom_password"));
@@ -232,7 +230,7 @@ class CheckCommand extends Command {
 		
 		//REMOVE ME!!!!!!!
 		// curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt($curl, CURLOPT_VERBOSE, true);
+		// curl_setopt($curl, CURLOPT_VERBOSE, true);
 
 		$data = curl_exec($curl);
 
