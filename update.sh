@@ -1,4 +1,3 @@
-cd phpBBStatusSite/
 git fetch origin
 git reset --hard origin/master
 git pull origin master
@@ -8,5 +7,4 @@ php5-cli app/console pingdom:update
 php5-cli app/console cache:clear --env=prod --no-debug
 php5-cli app/console assetic:dump --env=prod --no-debug
 php5-cli app/console cache:warmup
-cd ../
 echo "Complete"
