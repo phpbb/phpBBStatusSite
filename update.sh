@@ -6,5 +6,5 @@ php5-cli app/console doctrine:migrations:migrate --no-interaction
 php5-cli app/console pingdom:update
 php5-cli app/console cache:clear --env=prod --no-debug
 php5-cli app/console assetic:dump --env=prod --no-debug
-php5-cli app/console cache:warmup
+php5-cli app/console cache:warmup --env=prod --no-debug
 echo "Complete"
