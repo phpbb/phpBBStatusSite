@@ -71,7 +71,7 @@ class CheckCommand extends Command {
 						);
 				}
 
-				$up = false;
+				$up = true;
 
 				switch ($status['check']['status']) {
 				case 'down':
@@ -80,6 +80,7 @@ class CheckCommand extends Command {
 
 					$sitest = self::DOWN;
 					$sitestatus = $st;
+					$up = false;
 					break;
 				case 'unknown':
 					$st = 'Unknown';
@@ -95,7 +96,6 @@ class CheckCommand extends Command {
 					break;
 				case 'up':
 					$st = 'Up';
-					$up = true;
 
 					// Only update the global site status when
 					// there is no other check set to down!
