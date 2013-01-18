@@ -66,7 +66,7 @@ class CheckCommand extends Command {
 					$status = array('check' => array(
 								'lasttesttime' => time(),
 								'lastresponsetime' => -1,
-								'status' => 'down',
+								'status' => 'unknown',
 							)
 						);
 				}
