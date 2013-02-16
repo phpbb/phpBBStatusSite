@@ -131,6 +131,10 @@ class CheckCommand extends Command {
 				// Update entity
 				$check->setStatus($st);
 				$check->setStatusCode($up);
+				if (!isset($status['check']['lastresponsetime']))
+				{
+					$status['check']['lastresponsetime'] = 0;
+				}
 				$check->setLastresponse($status['check']['lastresponsetime']);
 				$check
 						->setCheckTime(
