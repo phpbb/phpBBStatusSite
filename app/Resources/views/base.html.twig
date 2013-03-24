@@ -46,8 +46,13 @@
 			<div class="nav-inner">
 				<div class="nav-container">
 					<ul class="nav">
-						<li class="selected"><a href="{{ path('homepage') }}">Home</a></li>
-						<li><a href="{{ path('contact') }}">Contact</a></li>
+						{% block navigation %}
+						{% if selected is not defined %}
+							{% set selected = 'home' %}
+						{% endif %}
+						<li{% if selected == 'home' %} class="selected"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
+						<li{% if selected == 'contact' %} class="selected"{% endif %}><a href="{{ path('contact') }}">Contact</a></li>
+						{% endblock %}
 						
 						{% if app.user %}
 								<li><a href="/admin/dashboard">ACP</a></li>

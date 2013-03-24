@@ -2,6 +2,10 @@
 
 {% block title %}{{ parent() }} - Home{% endblock %}
 
+{% block navigation %}
+{% set selected = 'contact' %}
+{{ parent() }}
+{% endblock %}
 
 {% block body %}
 {# Main Block #}
