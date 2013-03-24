@@ -86,6 +86,7 @@ a:hover,a:active {
 	background-color: #da9090;
 }
 
+#services.flat .row.status-unknown div,
 #services.flat .row.link-hover div {
 	background-color: #89a6bd;
 }
@@ -161,6 +162,7 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
+#services.flat .status-unknown h4:before,
 #services.flat .link-hover h4:before {
 	background-color: #134c7b;
 }
@@ -174,6 +176,7 @@ a:hover,a:active {
 	color: #360a0a;
 }
 
+#services.flat .status-unknown h4 a,
 #services.flat h4 a:hover {
 	color: #061725;
 	text-decoration: underline;
@@ -235,6 +238,7 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
+#services.full .status-unknown h4 a,
 #services.full h4:hover a {
 	background-color: #134c7b;
 }
@@ -292,6 +296,10 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
+#services.full .status-row.status-unknown {
+	background-color: #134c7b;
+}
+
 #services.full.row aside, #services.full.row h4, #services.full.row h4 a,{
 	transition: color 0.2s ease;
 	transition-property:color, background-color, opacity, transform;
@@ -329,6 +337,10 @@ a:hover,a:active {
 
 #services.full .status-down span {
 	background-color: #b52121;
+}
+
+#services.full .status-unknown span {
+	background-color: #134c7b;
 }
 
 #services.full .row.link-hover span {
