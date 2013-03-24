@@ -5,14 +5,6 @@
 {% block stylesheets %}
 {{ parent() }}
 <style type="text/css">
-    {% if not downtime %}
-                #status {background-color:#A9FA90;}
-	{% elseif not major %}
-		#status {background-color:#FAD090;}
-
-	{% else %}
-		#status {background-color:rgba(235, 7, 7, 0.69);}
-	{% endif %}
 	.span4 .hero-unit h2
 	{
 		margin-left: -30px;
