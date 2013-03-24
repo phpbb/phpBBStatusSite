@@ -8,7 +8,7 @@
 	{% for site in sites %}
 		#services.flat .service-{{ site.slug }} h4:before { background-position: -3px -{{ 50 * loop.index0 + 3 }}px; }
 		#services.full .service-{{ site.slug }} h4 a { background-position: 0 -{{ 60 * loop.index0 }}px; }
-	{% endfor %}			
+	{% endfor %}
 </style>
 {% endblock %}
 
@@ -25,13 +25,13 @@
 		<h1>{{ status }}</h1>
 		<p>
 			{% if downtime %}
-	                    {% if planned == 1 %}
-	                            A team of highly trained monkeys is doing maintainence on our site, we should be back soon
-	                    {% else %}
-	                            A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
-	                    {% endif %}
-	        {% else %}
-	        	Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
+						{% if planned == 1 %}
+								A team of highly trained monkeys is doing maintainence on our site, we should be back soon
+						{% else %}
+								A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
+						{% endif %}
+			{% else %}
+				Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
 			{% endif %}
 			
 		</p>
@@ -40,7 +40,6 @@
 	
 	<div id="services" class="flat">
 		<h2>Services</h2>
-		<?php foreach ($services as $row): ?>
 		{% for site in sites %}
 			<div class="row service-{{ site.slug }} status-{{ site.status|lower() }}" data-service="{{ site.slug }}" data-up="{% if site.status|lower() == 'down' %}false{% else %}true{% endif %}">
 				<div>

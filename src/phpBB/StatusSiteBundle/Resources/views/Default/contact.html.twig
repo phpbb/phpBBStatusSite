@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{{ parent() }} - Home{% endblock %}
+{% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block navigation %}
 {% set selected = 'contact' %}
@@ -10,43 +10,18 @@
 {% block body %}
 {# Main Block #}
 
-<div class="row">
-	{# Main Body #}
-	<div class="span8">
-        <div class="hero-unit">
-			<div class="row-fluid">
-				<div class="span">
-					<h2>Contact</h2>
-					<p>Important: Only use this contact form if you have any issues with accessing one of our sites or services.</p>
-				    <form action="{{ path('contact') }}" method="POST" id="contact_form">
-				        {{ form_errors(form) }}
-								
-				        {{ form_rest(form) }}
-				        <input type="submit" value="Send" class="symfony-button-grey" />
-				    </form>					
-				</div>
-				<div class="span2 offset5">
-					<p></h2>
-				</div>
-			</div>
-			<p></p>
+{# Main Body #}
+<div id="contact" class="page-title">
+	<h2>Contact</h2>
+	<p>Important: Only use this contact form if you have any issues with accessing one of our sites or services.</p>
+</div>
 
-                    </div>
-
-	</div>
-
-	{# Sidebar #}
-
-	<div class="span4">
-            <div class="hero-unit">
-            {% for site in sites %}
-                <div class="row">
-                    <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
-                    {{ site.status }}
-                </div>
-            {% endfor %}
-            </div>
-	</div>
+<div class="contact-form">
+	<form action="{{ path('contact') }}" method="POST" id="contact_form">
+		{{ form_errors(form) }}
+		{{ form_rest(form) }}
+		<input type="submit" value="Send" class="symfony-button-grey" />
+	</form>
 </div>
 
 {% endblock %}
