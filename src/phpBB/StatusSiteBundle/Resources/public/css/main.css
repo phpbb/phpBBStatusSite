@@ -292,155 +292,17 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
-#services
-.full
- 
-.row
- 
-aside
-,
-#services
-.full
- 
-.row
- 
-h4
-,
-#services
-.full
- 
-.row
- 
-h4
- 
-a
-,
-{
-transition
-:
- 
-color
- 
-0
-.2s
- 
-ease
-;
-
-					
-transition-property
-:
- 
-color
-,
-background-color
-,
-opacity
-,
-transform
-;
-
-					
--ms-transition
-:
- 
-color
- 
-0
-.2s
- 
-ease
-;
-
-					
--ms-transition-property
-:
- 
-color
-,
-background-color
-,
-opacity
-,
--ms-transform
-;
-
-					
--o-transition
-:
- 
-color
- 
-0
-.2s
- 
-ease
-;
-
-					
--o-transition-property
-:
- 
-color
-,
-background-color
-,
-opacity
-,
--o-transform
-;
-
-					
--moz-transition
-:
- 
-color
- 
-0
-.2s
- 
-ease
-;
-
-					
--moz-transition-property
-:
- 
-color
-,
-background-color
-,
-opacity
-,
--moz-transform
-;
-
-					
--webkit-transition
-:
- 
-color
- 
-0
-.2s
- 
-ease
-;
-
-					
--webkit-transition-property
-:
- 
-color
-,
-background-color
-,
-opacity
-,
--webkit-transform
-;
-
-				
+#services.full.row aside, #services.full.row h4, #services.full.row h4 a,{
+	transition: color 0.2s ease;
+	transition-property:color, background-color, opacity, transform;
+	-ms-transition: color 0.2s ease;
+	-ms-transition-property: color, background-color,opacity, -ms-transform;
+	-o-transition:color 0.2s ease;
+	-o-transition-property: color, background-color, opacity,-o-transform;
+	-moz-transition:color 0.2s ease;
+	-moz-transition-property:color, background-color,opacity,-moz-transform;
+	-webkit-transition:color 0.2s ease;
+	-webkit-transition-property: color, background-color, opacity , -webkit-transform;
 }
 #services.full .row span {
 	display: none;
@@ -753,51 +615,6 @@ opacity
 	}
 }
 
-/* Experimental logo background */
-.navbar .brand {
-	z-index: 3;
-}
-
-.navbar .nav-wrapper:before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 50px;
-	height: 50px;
-	background: #ececec;
-	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.75)
-		0%, rgba(255, 255, 255, 0) 100%);
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.75)
-		0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.navbar .nav-inner:before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: -30px;
-	left: 106px;
-	width: 70px;
-	height: 10px;
-	background: #134C7B;
-	border: 3px solid #fff;
-	border-width: 0 3px;
-}
-
-.navbar.fixed .nav-wrapper:before,.navbar.fixed .nav-inner:before,.ancientBrowser .navbar .nav-wrapper:before,.ancientBrowser .navbar .nav-inner:before,.operaMini .navbar .nav-wrapper:before,.operaMini .navbar .nav-inner:before
-	{
-	display: none;
-}
-
-@media only screen and (max-width: 600px) , only screen and
-	(max-device-width: 600px) {
-	.navbar .nav-wrapper:before,.navbar .nav-inner:before {
-		display: none;
-	}
-}
-
 /* Content container */
 .container {
 	margin: 10px;
@@ -844,8 +661,9 @@ opacity
 #status.down {
 	background: #B52121;
 }
-#status.minor{
-	background: #FAD090;	
+
+#status.minor {
+	background: #FAD090;
 }
 
 .container.full #status {
