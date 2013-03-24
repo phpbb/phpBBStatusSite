@@ -82,5 +82,6 @@ sonata_block:
             contexts:   [admin]
 
         sonata.block.service.text:
-        sonata.block.service.action:
         sonata.block.service.rss:
+        sonata.block.service.action:
+        
