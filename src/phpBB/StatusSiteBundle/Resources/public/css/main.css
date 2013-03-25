@@ -895,6 +895,8 @@ ul.site-checks
 	border-radius: 5px;
 	background: #fff;
 	color: #000;
+	min-height: 20px;
+	line-height: 1.28em;
 	width: 400px;
 	width: -webkit-calc(100% - 210px);
 	width: calc(100% - 210px);
