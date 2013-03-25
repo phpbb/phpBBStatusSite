@@ -160,7 +160,7 @@ $(document).ready(function() {
 
 		function resize()
 		{
-			var showChart = ($(window).width() > 460);
+			showChart = ($(window).width() > 460);
 			if (showChart && forcedView)
 			{
 				showChart = false;
@@ -218,6 +218,4 @@ $(document).ready(function() {
 		setTimeout(checkFooter, 100); /* Workaround for WebKit bug */
 		checkFooter();
 	})();
-
-	delete test;
 });
