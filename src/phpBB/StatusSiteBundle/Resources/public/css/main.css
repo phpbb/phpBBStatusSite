@@ -835,6 +835,135 @@ ul.site-checks
 			margin-bottom: 10px;
 		}
 
+/* Contact form */
+#contact.page-title p 
+{
+	margin-bottom: 20px;
+}
+
+	#contact.page-title p strong
+	{
+		color: #b52121;
+		font-weight: 500;
+	}
+
+.contact-form
+{
+	margin: 0 0 20px;
+	padding: 10px;
+	border: 3px solid #fff;
+	border-color: rgba(255, 255, 255, 0.5);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+#contact_form div
+{
+	clear: both;
+	margin: 0;
+	padding: 5px 0;
+}
+
+	#contact_form div + div
+	{
+		border-top: 1px dotted #fff;
+	}
+
+#contact_form label
+{
+	display: block;
+	float: left;
+	width: 200px;
+	text-align: left;
+	margin: 0;
+	padding: 4px 0 0;
+}
+
+#contact_form input[type="submit"]
+{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	color: #000;
+}
+
+#contact_form input[type="text"],
+#contact_form input[type="email"],
+#contact_form textarea
+{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	color: #000;
+	width: 400px;
+	width: -webkit-calc(100% - 210px);
+	width: calc(100% - 210px);
+}
+
+	#contact_form textarea
+	{
+		height: 100px;
+	}
+
+	#contact_form input[type="text"]:hover,
+	#contact_form input[type="email"]:hover,
+	#contact_form textarea:hover
+	{
+		outline-style: none;
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+		background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+	}
+
+	#contact_form input[type="text"]:focus,
+	#contact_form input[type="email"]:focus,
+	#contact_form textarea:focus,
+	#contact_form input[type="submit"]:hover,
+	#contact_form input[type="submit"]:focus
+	{
+		outline-style: none;
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+		background: #134c7b;
+		border-color: #134c7b;
+		color: #fff;
+		background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+	}
+
+#contact_form input.symfony-button-grey
+{
+	margin-left: 200px;
+}
+
+@media only screen and (max-width: 700px) , only screen and 
+	(max-device-width: 700px) {
+	#contact_form div
+	{
+		padding: 5px 10px;
+	}
+
+	#contact_form label
+	{
+		width: auto;
+		float: none;
+		margin-left: -10px;
+		padding-bottom: 10px;
+	}
+
+	#contact_form input[type="text"],
+	#contact_form input[type="email"],
+	#contact_form textarea
+	{
+		width: 95%;
+	}
+
+	#contact_form input.symfony-button-grey
+	{
+		margin-left: 0;
+		text-align: center;
+	}
+}
+
 /* Footer */
 .footer {
 	border-top: 3px solid rgba(255, 255, 255, 0.7);
