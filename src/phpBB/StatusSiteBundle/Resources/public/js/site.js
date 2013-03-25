@@ -34,36 +34,6 @@ $(document).ready(function() {
 		}
 	})();
 
-
-	/* Footer */
-	(function() {
-		var minHeight = 440, /* default min-height for .container */
-			headerHeight = 100, /* height for .navbar */
-			extraDiff = 23, /*
-							 * margin for .container + border for
-							 * .footer
-							 */
-			footer = $('.footer'),
-			content = $('.container');
-
-		if (footer.length != 1 || !content.length)
-		{
-			return;
-		}
-
-		function checkFooter()
-		{
-			var windowHeight = $(window).height(),
-				footerHeight = footer.height(),
-				contentHeight = windowHeight - footerHeight - headerHeight - extraDiff;
-
-			content.css('min-height', (contentHeight > minHeight ? Math.floor(contentHeight) : minHeight) + 'px');
-		}
-
-		$(window).resize(checkFooter);
-		checkFooter();
-	})();
-
 	/* Navbar */
 	(function() {
 		function checkScroll()
@@ -216,6 +186,37 @@ $(document).ready(function() {
 			resize();
 		});
 
+	})();
+
+	/* Footer */
+	(function() {
+		var $window = $(window),
+			minHeight = 440, /* default min-height for .container */
+			headerHeight, /* height for .navbar */
+			extraDiff = 23, /*
+							 * margin for .container + border for
+							 * .footer
+							 */
+			footer = $('.footer'),
+			content = $('.container');
+
+		if (footer.length != 1 || !content.length)
+		{
+			return;
+		}
+
+		function checkFooter()
+		{
+			var windowHeight = $window.height(),
+				footerHeight = footer.height(),
+				contentHeight = windowHeight - footerHeight - headerHeight - extraDiff;
+			headerHeight = ($window.width() > 600) ? 100 : 43;
+			content.css('min-height', (contentHeight > minHeight ? Math.floor(contentHeight) : minHeight) + 'px');
+		}
+
+		$(window).resize(checkFooter);
+		setTimeout(checkFooter, 100); /* Workaround for WebKit bug */
+		checkFooter();
 	})();
 
 	delete test;
