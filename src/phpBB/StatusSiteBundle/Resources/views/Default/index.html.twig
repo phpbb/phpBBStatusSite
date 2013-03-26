@@ -2,16 +2,6 @@
 
 {% block title %}{{ parent() }} - Home{% endblock %}
 
-{% block stylesheets %}
-{{ parent() }}
-<style type="text/css">
-	{% for site in sites %}
-		#services.flat .service-{{ site.slug }} h4:before { background-position: -3px -{{ 50 * loop.index0 + 3 }}px; }
-		#services.full .service-{{ site.slug }} h4 a { background-position: 0 -{{ 60 * loop.index0 }}px; }
-	{% endfor %}
-</style>
-{% endblock %}
-
 {% block body %}
 	{# Main Block #}
 	

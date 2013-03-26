@@ -347,6 +347,44 @@ a:hover,a:active {
 	display: block;
 }
 
+/* Service specific icons */
+#services.flat .service-wwwphpbbcom h4:before { background-position: -3px -3px; }
+#services.full .service-wwwphpbbcom h4 a { background-position: 0 -0px; }
+
+#services.flat .service-area51 h4:before { background-position: -3px -53px; }
+#services.full .service-area51 h4 a { background-position: 0 -60px; }
+
+#services.flat .service-miscphpbbcom h4:before { background-position: -3px -103px; }
+#services.full .service-miscphpbbcom h4 a { background-position: 0 -120px; }
+
+#services.flat .service-downloadphpbbcom h4:before { background-position: -3px -153px; }
+#services.full .service-downloadphpbbcom h4 a { background-position: 0 -180px; }
+
+#services.flat .service-listsphpbbcom h4:before { background-position: -3px -203px; }
+#services.full .service-listsphpbbcom h4 a { background-position: 0 -240px; }
+
+#services.flat .service-db1phpbbcom h4:before { background-position: -3px -253px; }
+#services.full .service-db1phpbbcom h4 a { background-position: 0 -300px; }
+
+#services.flat .service-camophpbbcom h4:before { background-position: -3px -303px; }
+#services.full .service-camophpbbcom h4 a { background-position: 0 -360px; }
+
+#services.flat .service-tryphpbbcom h4:before { background-position: -3px -353px; }
+#services.full .service-tryphpbbcom h4 a { background-position: 0 -420px; }
+
+#services.flat .service-codephpbbcom h4:before { background-position: -3px -403px; }
+#services.full .service-codephpbbcom h4 a { background-position: 0 -480px; }
+
+#services.flat .service-mailphpbbcom h4:before { background-position: -3px -453px; }
+#services.full .service-mailphpbbcom h4 a { background-position: 0 -540px; }
+
+#services.flat .service-titaniasearch h4:before { background-position: -3px -503px; }
+#services.full .service-titaniasearch h4 a { background-position: 0 -600px; }
+
+#services.flat .service-loadbalancer h4:before { background-position: -3px -553px; }
+#services.full .service-loadbalancer h4 a { background-position: 0 -660px; }
+
+
 /* Navigation */
 .navbar {
 	position: relative;
