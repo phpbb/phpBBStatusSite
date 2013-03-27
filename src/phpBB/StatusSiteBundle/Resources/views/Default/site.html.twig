@@ -1,45 +1,56 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{{ parent() }} - Home{% endblock %}
+{% block title %}{{ parent() }} - {{ site.name }}{% endblock %}
+
+{% block navigation %}
+{% set selected = 'site' %}
+{{ parent() }}
+{% endblock %}
 
 {% block body %}
 {# Main Block #}
-<div class="hero-unit" id="site">
-    <h1>{{ site.name }}</h1>
-    <p>{{ site.description }}</p>
+<div id="site" class="page-title">
+	<h1>{{ site.name }}</h1>
+	<p>{{ site.description }}</p>
 </div>
 
-<div class="row">
+<ul class="site-checks">
 	{# Main Body #}
-	<div class="span8">
-            {% for check in site.checks %}
-                <div class="hero-unit">
-                    <h2>{{ check.name }}</h2>
-                    <p>{{ check.description }}<br />{{ check.status }}, on {{ check.checktime|date}}<br />
-                    Last response time: {% if check.lastresponse and check.lastresponse != -1 %}{{ check.lastresponse }}ms{% else %}Unknown{% endif %}.
-                    </p>
-                </div>
-            {% endfor %}
-	</div>
+	{% for check in site.checks %}
+		<li>
+			<div class="site-check">
+				<h3>{{ check.name }}</h3>
+				<p>{{ check.description }}</p>
+				<p>{{ check.status }}, on {{ check.checktime|date}}<br />
+				Last response time: {% if check.lastresponse and check.lastresponse != -1 %}{{ check.lastresponse }}ms{% else %}Unknown{% endif %}.
+				</p>
+			</div>
+		</li>
+	{% endfor %}
+</ul>
 
-	{# Sidebar #}
-
-	<div class="span4">
-            <h2>Planned downtime</h2>
-            {% for overides in site.overides %}
-                {% if overides.endtime >= now or not overides.finished %}
-                <div class="hero-unit">
-                    <h4>{{ overides.updateid.name }}</h4>
-                    <p>
-                        {{ overides.updateid.description }} <br />
-                        Start: {{ overides.starttime|date }}<br />
-                        End: {{ overides.endtime|date }}<br />
-                        Finished: {% if overides.finished %}Yes{% else %}No{% endif %}
-                    </p>
-                </div>
-                {% endif %}
-            {% endfor %}
-	</div>
+<div id="updates">
+	<h2>Planned downtime</h2>
+	{% set downtime = 'none' %}
+	{% for overides in site.overides %}
+		{% if overides.endtime >= now or not overides.finished %}
+		{% set downtime = 'planned' %}
+		<div class="update">
+			<h3>{{ overides.updateid.name }}</h3>
+			<p class="update-text">
+				{{ overides.updateid.description }} <br />
+				Start: {{ overides.starttime|date }}<br />
+				End: {{ overides.endtime|date }}<br />
+				Finished: {% if overides.finished %}Yes{% else %}No{% endif %}
+			</p>
+		</div>
+		{% endif %}
+	{% endfor %}
+	{% if downtime == 'none' %}
+		<div class="update empty">
+			<p>No downtime planned</p>
+		</div>
+	{% endif %}
 </div>
 
 {% endblock %}

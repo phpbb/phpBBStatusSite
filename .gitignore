@@ -7,3 +7,4 @@ vendor
 bin
 app/config/parameters.yml
 .settings/*
+.project

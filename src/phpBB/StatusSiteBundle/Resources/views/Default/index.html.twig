@@ -2,82 +2,59 @@
 
 {% block title %}{{ parent() }} - Home{% endblock %}
 
-{% block stylesheets %}
-{{ parent() }}
-<style type="text/css">
-    {% if not downtime %}
-                #status {background-color:#A9FA90;}
-	{% elseif not major %}
-		#status {background-color:#FAD090;}
-
-	{% else %}
-		#status {background-color:rgba(235, 7, 7, 0.69);}
-	{% endif %}
-	.span4 .hero-unit h2
-	{
-		margin-left: -30px;
-	}
-	
-</style>
-{% endblock %}
-
 {% block body %}
-{# Main Block #}
+	{# Main Block #}
+	
+	{% if not downtime %}
+		<div id="status">
+	{% elseif not major %}
+		<div id="status" class="minor">
+	{% else %}
+		<div id="status" class="down">
+	{% endif %}
+		<h1>{{ status }}</h1>
+		<p>
+			{% if downtime %}
+						{% if planned == 1 %}
+								A team of highly trained monkeys is doing maintainence on our site, we should be back soon
+						{% else %}
+								A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
+						{% endif %}
+			{% else %}
+				Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
+			{% endif %}
+			
+		</p>
+	</div>	
 
-<div class="row">
-	{# Main Body #}
-	<div class="span8">
-		<div class="hero-unit" id="status">
-			<h1>{{ status }}</h1>
-			<p>
-				<br /><br />
-				{% if downtime %}
-		                    {% if planned == 1 %}
-		                            A team of highly trained monkeys is doing maintainence on our site, we should be back soon
-		                    {% else %}
-		                            A team of highly trained monkeys have been notified about the downtime and will post an update as soon as possible
-		                    {% endif %}
-		        {% else %}
-		        	Everything is working perfectly fine. We keep our trained monkeys around to make sure nothing happens.
-				{% endif %}
-			</p>
-		</div>	
-		{% if updates %}
+	
+	<div id="services" class="flat">
+		<h2>Services</h2>
+		{% for site in sites %}
+			<div class="row service-{{ site.slug }} status-{{ site.status|lower() }}" data-service="{{ site.slug }}" data-up="{% if site.status|lower() == 'down' %}false{% else %}true{% endif %}">
+				<div>
+					<h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
+					<span>{{ site.status }}</span>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	
+	{% if updates %}
+	
+		<div id="updates">
 			<h2>Latest updates</h2>
 			{% for update in updates %}
-		        <div class="hero-unit">
-					<div class="row-fluid">
-						<div class="span5">
-							<h2>{{ update.name }}</h2>
-						</div>
-						<div class="span2 offset5">
-							<p>{{ update.posttime|date() }}</h2>
-						</div>
-					</div>
-					<p>{{ update.description|raw }}</p>
-					<div class="row-fluid">
-						<div class="span2 offset10">
-							<p>{{ update.userid }}</p>
-						</div>
-					</div>
-		        </div>
+				<div class="update">
+					<h3>{{ update.name }}</h3>
+					<p class="update-time">{{ update.posttime|date() }}</p>
+					<p class="update-text">
+						{{ update.description|raw }}
+					</p>
+					<p class="update-author">{{ update.userid }}</p>
+				</div>
 			{% endfor %}
-		{% endif %}
 		</div>
-
-	{# Sidebar #}
-
-	<div class="span4">
-        <div class="hero-unit">
-        <h2>Services</h2>
-        {% for site in sites %}
-            <div class="row">
-                <h4><a href="{{ path('site', {'slug': site.slug})}}">{{ site.name }}</a></h4>
-                {{ site.status }}
-            </div>
-        {% endfor %}
-    	</div>
-	</div>
-</div>
+	{% endif %}
 
 {% endblock %}

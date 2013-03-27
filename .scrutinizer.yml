@@ -1,0 +1,22 @@
+tools:
+    sensiolabs_security_checker: true
+    php_cpd: true
+    js_hint: true
+    php_code_sniffer:
+        enabled: true
+        config:
+            standard: PSR1
+            tab_width: 4
+    php_cs_fixer:
+        enabled: true
+        config:
+            level: all
+    php_mess_detector: true
+    php_analyzer:
+        enabled: true
+        config:
+            use_statement_fixes:
+                preserve_multiple: true
+    
+before_commands:
+    - composer install --dev
