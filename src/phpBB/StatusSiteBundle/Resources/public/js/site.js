@@ -38,11 +38,8 @@ $(document).ready(function() {
 	(function() {
 		function checkScroll()
 		{
-			var fixed = ($(window).width() > 600 && $(window).height() > 400 && $(document).scrollTop() > 35);
+			var fixed = ($(window).width() > 600 && $(window).height() > 400 && $(document).scrollTop() > 0);
 			$('.navbar').toggleClass('fixed', fixed);
-			setTimeout(function() {
-				$('.navbar ul').css('padding', fixed ? '0' : '');
-			}, 50);
 		}
 
 		var body = $('body');
@@ -192,8 +189,7 @@ $(document).ready(function() {
 	(function() {
 		var $window = $(window),
 			minHeight = 440, /* default min-height for .container */
-			headerHeight, /* height for .navbar */
-			extraDiff = 23, /*
+			extraDiff = 73, /*
 							 * margin for .container + border for
 							 * .footer
 							 */
@@ -209,8 +205,7 @@ $(document).ready(function() {
 		{
 			var windowHeight = $window.height(),
 				footerHeight = footer.height(),
-				contentHeight = windowHeight - footerHeight - headerHeight - extraDiff;
-			headerHeight = ($window.width() > 600) ? 100 : 43;
+				contentHeight = windowHeight - footerHeight - extraDiff;
 			content.css('min-height', (contentHeight > minHeight ? Math.floor(contentHeight) : minHeight) + 'px');
 		}
 
