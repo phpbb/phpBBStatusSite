@@ -430,8 +430,23 @@ a:hover,a:active {
 	height: 0;
 	padding-left: 90px;
 	padding-top: 40px;
-	background: transparent url(../images/logos.png) -9px -104px no-repeat;
+	background: transparent url(../images/logo_small.png) 50% 50% no-repeat;
 	overflow: hidden;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), 
+	(min-resolution: 192dpi), 
+	(min-resolution: 1.5dppx) {
+	.navbar .brand span {
+		background-image: url(../images/logo_large.png);
+		background-size: 100% 100%;
+	}
+}
+
+@media (-o-min-device-pixel-ratio: 1) {
+	.navbar .brand span {
+		background-image: url(../images/logo_small.png);
+	}
 }
 
 .navbar ul {
