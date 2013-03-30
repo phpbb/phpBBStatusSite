@@ -513,6 +513,7 @@ a:hover,a:active {
 @media only screen {
 	.container.full {
 		min-height: 440px;
+		margin-left: 40px;
 		position: relative;
 	}
 	.container.full>div {
@@ -527,6 +528,9 @@ a:hover,a:active {
 
 @media only screen and (max-width: 1000px) , only screen and
 	(max-device-width: 1000px) {
+	.container.full {
+		margin-left: 10px;
+	}
 	.container.full>div {
 		margin-right: 0;
 	}
