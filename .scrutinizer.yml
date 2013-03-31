@@ -16,4 +16,4 @@ tools:
         enabled: true
         config:
             use_statement_fixes:
-                preserve_multiple: true
+                order_alphabetically: true

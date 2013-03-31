@@ -3,13 +3,12 @@
 namespace phpBB\StatusSiteBundle\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use phpBB\StatusSiteBundle\Entity\Status;
 
-class CheckCommand extends Command {
+class CheckCommand extends Command
+{
 	private $output;
 
 	const INIT = 0;
@@ -17,13 +16,14 @@ class CheckCommand extends Command {
 	const DOWN = 2;
 	const UNKNOWN = 3;
 
-	protected function configure() {
+	protected function configure()
+	{
 		$this->setName('pingdom:update')
-				->setDescription(
-						'Update the current site status of all pingdom checks');
+			->setDescription('Update the current site status of all pingdom checks');
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output)
+	{
 		$container = $this->getApplication()->getKernel()->getContainer();
 		$this->output = $output;
 
@@ -31,12 +31,13 @@ class CheckCommand extends Command {
 		$em = $container->get('doctrine')->getEntityManager();
 
 		$sites = $container->get('doctrine')
-				->getRepository('phpBBStatusSiteBundle:Sites');
+			->getRepository('phpBBStatusSiteBundle:Sites');
 
 		$all = $sites->findAll();
 		$globalMajor = $globalMinor = false;
 
-		for ($i = 0; $i < sizeof($all); $i++) {
+		for ($i = 0; $i < sizeof($all); $i++)
+		{
 			$localMajor = $localMinor = false;
 			$sitest = self::INIT;
 			$sitestatus = "Unknown";
@@ -46,88 +47,97 @@ class CheckCommand extends Command {
 
 			$checks = $site->getChecks();
 
-			foreach ($checks as $check) {
-				$output
-						->writeln(
-								"Contacting pingdom for check "
-										. $check->getName());
+			foreach ($checks as $check)
+			{
+				$output->writeln("Contacting pingdom for check " . $check->getName());
 
 				$pingdom = $check->getPingdomId();
-				if (empty($pingdom)) {
-					$output
-							->writeln(
-									"Missing pingdom ID. Please assign it in the admin panel");
+				if (empty($pingdom))
+				{
+					$output->writeln("Missing pingdom ID. Please assign it in the admin panel");
 					continue;
 				}
 
 				$status = $this->checkId($pingdom);
 
-				if ($status === false) {
-					$status = array('check' => array(
-								'lasttesttime' => time(),
-								'lastresponsetime' => -1,
-								'status' => 'unknown',
-							)
-						);
+				if ($status === false)
+				{
+					$status = array(
+						'check' => array(
+							'lasttesttime' => time(),
+							'lastresponsetime' => -1,
+							'status' => 'unknown',
+						)
+					);
 				}
 
 				$up = true;
 
-				switch ($status['check']['status']) {
-				case 'down':
-				case 'unconfirmed_down':
-					$st = 'Down';
+				switch ($status['check']['status'])
+				{
+					case 'down':
+					case 'unconfirmed_down':
+						$st = 'Down';
 
-					$sitest = self::DOWN;
-					$sitestatus = $st;
-					$up = false;
-					break;
-				case 'unknown':
-					$st = 'Unknown';
-					$sitest = self::UNKNOWN;
-					$sitestatus = $st;
-					break;
-				case 'paused':
-					$st = 'Paused';
-					$up = true; // Might change this to false?	
+						$sitest = self::DOWN;
+						$sitestatus = $st;
+						$up = false;
+						break;
 
-					$sitestatus = $st;
+					case 'unknown':
+						$st = 'Unknown';
+						$sitest = self::UNKNOWN;
+						$sitestatus = $st;
+						break;
 
-					break;
-				case 'up':
-					$st = 'Up';
+					case 'paused':
+						$st = 'Paused';
+						$up = true; // Might change this to false?
 
-					// Only update the global site status when
-					// there is no other check set to down!
-					if ($sitest <= self::UP) {
-						$sitest = self::UP;
-						$sitestatus = 'Up';
-					}
+						$sitestatus = $st;
 
-					break;
-				default:
-					$output
-							->writeln(
-									"Unknown status: "
-											. $status['check']['status']);
+						break;
+
+					case 'up':
+						$st = 'Up';
+
+						// Only update the global site status when
+						// there is no other check set to down!
+						if ($sitest <= self::UP)
+						{
+							$sitest = self::UP;
+							$sitestatus = 'Up';
+						}
+
+						break;
+
+					default:
+						$output->writeln("Unknown status: " . $status['check']['status']);
 				}
 
 				$output->writeln("Status: " . $st . " Up: " . (int) $up);
 
-				if ($st != $check->getStatus()
-						|| $up != $check->getStatusCode()) {
+				if ($st != $check->getStatus() || $up != $check->getStatusCode())
+				{
 					// Going to send a email O_o_O
 					$output->writeln("Status change, sending mail...");
-				} else {
+				}
+				else
+				{
 					$output->writeln("No status change.");
 				}
-				if ($site->getMajor()) {
+
+				if ($site->getMajor())
+				{
 					$localMajor = $localMajor || !$up;
 					$globalMajor = $globalMajor || !$up;
-				} else {
+				}
+				else
+				{
 					$localMinor = $localMinor || !$up;
 					$globalMinor = $globalMinor || !$up;
 				}
+
 				// Update entity
 				$check->setStatus($st);
 				$check->setStatusCode($up);
@@ -135,11 +145,9 @@ class CheckCommand extends Command {
 				{
 					$status['check']['lastresponsetime'] = 0;
 				}
+
 				$check->setLastresponse($status['check']['lastresponsetime']);
-				$check
-						->setCheckTime(
-								new \DateTime(
-										'@' . $status['check']['lasttesttime']));
+				$check->setCheckTime(new \DateTime('@' . $status['check']['lasttesttime']));
 
 				$em->persist($check);
 			}
@@ -148,44 +156,56 @@ class CheckCommand extends Command {
 			$site->setStatus($sitestatus);
 			$em->persist($site);
 		}
-		$output
-				->writeln(
-						"Finished updating site and checks, updating database");
+		$output->writeln("Finished updating site and checks, updating database");
 
 		$status = $container->get('doctrine')
-				->getRepository('phpBBStatusSiteBundle:Status');
+			->getRepository('phpBBStatusSiteBundle:Status');
 		$overall = ($status->findOneByName('overall'));
-		if (!$overall) {
+
+		if (!$overall)
+		{
 			$overall = new Status();
 			$overall->setName('overall');
 		}
 
-		if ($globalMajor || $globalMinor) {
+		if ($globalMajor || $globalMinor)
+		{
 			$overall->setValue(1);
-		} else {
+		}
+		else
+		{
 			$overall->setValue(0);
 		}
 
 		$type = ($status->findOneByName('major'));
-		if (!$type) {
+
+		if (!$type)
+		{
 			$type = new Status();
 			$type->setName('major');
 		}
-		if ($globalMajor) {
+
+		if ($globalMajor)
+		{
 			$type->setValue(1);
-		} else {
+		}
+		else
+		{
 			$type->setValue(0);
 		}
 
 		$last = ($status->findOneByName('last'));
-		if (!$last) {
+		if (!$last)
+		{
 			$last = new Status();
 			$last->setName('last');
 		}
+
 		$last->setValue(time());
 
 		$planned = ($status->findOneByName('planned'));
-		if (!$planned) {
+		if (!$planned)
+		{
 			$planned = new Status();
 			$planned->setName('planned');
 		}
@@ -204,7 +224,8 @@ class CheckCommand extends Command {
 	 * @param int check id.
 	 * @return mixed
 	 */
-	private function checkId($id) {
+	private function checkId($id)
+	{
 		$container = $this->getApplication()->getKernel()->getContainer();
 
 		// Init cURL
@@ -217,14 +238,12 @@ class CheckCommand extends Command {
 		// Set user (email) and password
 				
 		curl_setopt($curl, CURLOPT_USERPWD,
-				$container->getParameter("pingdom_user") . ":"
-						. $container->getParameter("pingdom_password"));
+				$container->getParameter("pingdom_user") . ":" . $container->getParameter("pingdom_password"));
 						
 		// Add a http header containing the application key (see the Authentication section of this document)
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
-				array(
-					"App-Key: " . $container->getParameter("pingdom_token"),
-				));
+			array("App-Key: " . $container->getParameter("pingdom_token"),)
+		);
 		// Ask cURL to return the result as a string
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		// Set timeout on the pingdom call
@@ -238,10 +257,9 @@ class CheckCommand extends Command {
 
 		$data = curl_exec($curl);
 
-		if ($data === false) {
-			$this->output
-					->writeln(
-							"There has been a cURL error: " . curl_error($curl));
+		if ($data === false)
+		{
+			$this->output->writeln("There has been a cURL error: " . curl_error($curl));
 			return false;
 		}
 
