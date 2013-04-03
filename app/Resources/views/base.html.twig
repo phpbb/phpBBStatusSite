@@ -38,7 +38,7 @@
 		<link rel="apple-touch-icon" href="apple-touch-icon.png ">
 	</head>
 
-	<body>
+	<body{% if app.user %} class="logged-in"{% endif %}>
 
 	<div class="navbar">
 		<a class="brand" href="https://www.phpbb.com"><span>phpBB</span></a>

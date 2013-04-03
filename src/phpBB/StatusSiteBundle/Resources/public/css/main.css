@@ -449,6 +449,13 @@ a:hover,a:active {
 	}
 }
 
+@media only screen and (max-width: 600px) , only screen and
+	(max-device-width: 600px) {
+	.logged-in .navbar .brand {
+		display: none;
+	}
+}
+
 .navbar ul {
 	list-style-type: none;
 	display: block;
@@ -517,6 +524,11 @@ a:hover,a:active {
 	(max-device-width: 600px) {
 	.navbar li a {
 		letter-spacing: 0;
+	}
+
+	.logged-in .navbar li a {
+		padding-left: 8px;
+		padding-right: 8px;
 	}
 }
 
