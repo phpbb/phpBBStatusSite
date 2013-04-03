@@ -384,6 +384,8 @@ a:hover,a:active {
 #services.flat .service-loadbalancer h4:before { background-position: -3px -553px; }
 #services.full .service-loadbalancer h4 a { background-position: 0 -660px; }
 
+#services.flat .service-sandboxphpbbcom h4:before { background-position: -3px -603px; }
+#services.full .service-sandboxphpbbcom h4 a { background-position: 0 -720px; }
 
 /* Navigation */
 .navbar {
