@@ -14,6 +14,8 @@ Install
 
 4. Run php app/console doctrine:migrations:migrate to create the initial tables for the site.
 
+5. In case the intl extension isn't working (Like on bluehost), and icu-dev ins't available, you can use https://github.com/kbsali/sf2-icu as replacement.
+
 License
 -------
 [GNU GPL v3](http://opensource.org/licenses/gpl-3.0)
