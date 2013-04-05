@@ -193,11 +193,6 @@ class Updates
         return $this->overides;
     }
 
-    public function __toString()
-    {
-        return $this->getName();
-    }
-
     /**
      * Set user_id
      *

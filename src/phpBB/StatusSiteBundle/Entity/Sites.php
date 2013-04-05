@@ -230,10 +230,6 @@ class Sites {
 		return $this->checks;
 	}
 
-	public function __toString() {
-		return $this->getName();
-	}
-
 	/**
 	 * Add overides
 	 *
