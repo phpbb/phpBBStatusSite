@@ -20,6 +20,11 @@ class Config
      * @ORM\Column(type="string")
      */
 	protected $config_value;
+	
+	public function __toString()
+	{
+		return (string)$this->getConfigName();
+	}	
 
     /**
      * Set config_name

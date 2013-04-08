@@ -53,6 +53,12 @@ class Overides
     {
 
     }
+	
+	public function __toString()
+	{
+		return (string)$this->siteId();
+	}
+	
     /**
      * Get id
      *

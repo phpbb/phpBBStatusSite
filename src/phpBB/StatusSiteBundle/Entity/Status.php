@@ -21,6 +21,11 @@ class Status
      */
 	protected $value;
 
+	public function __toString()
+	{
+		return (string)$this->getName();
+	}	
+	
     /**
      * Set name
      *
