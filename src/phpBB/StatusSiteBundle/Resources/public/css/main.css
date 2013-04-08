@@ -751,6 +751,26 @@ ul.site-checks
 			margin-bottom: 10px;
 		}
 
+		ul.site-checks .status-up .site-check
+		{
+			background-color: #31852d;
+			border-color: rgba(255, 255, 255, 0.3);
+			color: #d6e7d5;
+		}
+
+		ul.site-checks .status-down .site-check
+		{
+			background-color: #b52121;
+			border-color: rgba(255, 255, 255, 0.3);
+			color: #f0d3d3;
+		}
+
+		ul.site-checks .status-up h3,
+		ul.site-checks .status-down h3
+		{
+			color: #fff;
+		}
+
 /* Contact form */
 #contact.page-title p 
 {
