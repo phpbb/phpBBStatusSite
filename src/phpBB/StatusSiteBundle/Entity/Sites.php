@@ -85,6 +85,11 @@ class Sites {
 		$this->checks = new ArrayCollection();
 		$this->overides = new ArrayCollection();
 	}
+	
+	public function __toString()
+	{
+		return (string)$this->getName();
+	}
 
 	/**
 	 * Get id
