@@ -77,7 +77,7 @@ class DefaultController extends Controller {
 				$message = \Swift_Message::newInstance()
 				->setSubject('Status contact from ' . $data['email'])
 				->setFrom($data['email'])
-				->setTo('website@phpbb.com')
+				->setTo('phpbbdown@phpbb.xxx')
 				->setBody(
 						$this->renderView(
 								'phpBBStatusSiteBundle:Default:email.txt.twig',
