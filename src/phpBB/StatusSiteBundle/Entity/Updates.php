@@ -49,6 +49,11 @@ class Updates
     {
         $this->overides = new ArrayCollection();
     }
+	
+	public function __toString()
+	{
+		return (string)$this->getName();
+	}	
 
     /**
      * @ORM\PrePersist
@@ -191,11 +196,6 @@ class Updates
     public function getOverides()
     {
         return $this->overides;
-    }
-
-    public function __toString()
-    {
-        return $this->getName();
     }
 
     /**

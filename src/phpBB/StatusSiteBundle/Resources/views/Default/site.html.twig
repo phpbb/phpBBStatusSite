@@ -17,7 +17,7 @@
 <ul class="site-checks">
 	{# Main Body #}
 	{% for check in site.checks %}
-		<li>
+		<li class="status-{{ check.status|lower }}">
 			<div class="site-check">
 				<h3>{{ check.name }}</h3>
 				<p>{{ check.description }}</p>

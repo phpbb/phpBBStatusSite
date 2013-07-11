@@ -3,7 +3,6 @@
 namespace phpBB\StatusSiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -54,6 +53,12 @@ class Overides
     {
 
     }
+	
+	public function __toString()
+	{
+		return (string)$this->siteId();
+	}
+	
     /**
      * Get id
      *

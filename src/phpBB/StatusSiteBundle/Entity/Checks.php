@@ -70,6 +70,10 @@ class Checks {
 	public function setCreatedValue() {
 		$this->status = "Unknown";
 	}
+	public function __toString()
+	{
+		return (string)$this->getName();
+	}	
 
 
     /**

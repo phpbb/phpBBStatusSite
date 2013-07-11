@@ -16,7 +16,4 @@ tools:
         enabled: true
         config:
             use_statement_fixes:
-                preserve_multiple: true
-    
-before_commands:
-    - composer install --dev
+                order_alphabetically: true
