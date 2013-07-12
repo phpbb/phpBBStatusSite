@@ -40,7 +40,7 @@ class Updates
      protected $overides;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Application\Sonata\UserBundle\Entity\User", inversedBy="updates")
+     * @ORM\ManyToOne(targetEntity="\phpBB\StatusSiteBundle\Entity\User", inversedBy="updates")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
 	protected $user_id;
@@ -201,10 +201,10 @@ class Updates
     /**
      * Set user_id
      *
-     * @param Application\Sonata\UserBundle\Entity\User $userId
+     * @param phpBB\StatusSiteBundle\Entity\User $userId
      * @return Updates
      */
-    public function setUserId(\Application\Sonata\UserBundle\Entity\User $userId = null)
+    public function setUserId(\phpBB\StatusSiteBundle\Entity\User $userId = null)
     {
         $this->user_id = $userId;
 
