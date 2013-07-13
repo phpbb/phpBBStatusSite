@@ -1,0 +1,30 @@
+admin_overides:
+    pattern:  /
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:index" }
+
+admin_overides_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:show" }
+
+admin_overides_new:
+    pattern:  /new
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:new" }
+
+admin_overides_create:
+    pattern:  /create
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:create" }
+    requirements: { _method: post }
+
+admin_overides_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:edit" }
+
+admin_overides_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:update" }
+    requirements: { _method: post|put }
+
+admin_overides_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "phpBBStatusSiteBundle:Overides:delete" }
+    requirements: { _method: post|delete }

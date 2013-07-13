@@ -24,4 +24,8 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+    /**
+     * @ORM\OneToMany(targetEntity="Updates", mappedBy="user_id")
+     */
+    protected $updates;
 }

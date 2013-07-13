@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Overides</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Start_time</th>
+                <td>{{ entity.starttime|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>End_time</th>
+                <td>{{ entity.endtime|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Up_down</th>
+                <td>{{ entity.updown }}</td>
+            </tr>
+            <tr>
+                <th>Finished</th>
+                <td>{{ entity.finished }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_overides') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_overides_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('admin_overides_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}
