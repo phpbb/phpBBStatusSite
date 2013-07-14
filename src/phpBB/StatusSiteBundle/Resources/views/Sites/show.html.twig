@@ -48,23 +48,23 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
+    <ul class="record_actions">
+      <li>
         <a href="{{ path('admin_sites') }}">
-            Back to the list
+          Back to the list
         </a>
-    </li>
-    <li>
+      </li>
+      <li>
         <a href="{{ path('admin_sites_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
+          Edit
+	</a>
+      </li>
+      <li>
         <form action="{{ path('admin_sites_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+          <input type="hidden" name="_method" value="DELETE" />
+          {{ form_widget(delete_form) }}
+          <button type="submit">Delete</button>
         </form>
-    </li>
-</ul>
+      </li>
+    </ul>
 {% endblock %}
