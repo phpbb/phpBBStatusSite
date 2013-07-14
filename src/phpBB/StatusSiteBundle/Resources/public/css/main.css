@@ -384,6 +384,8 @@ a:hover,a:active {
 #services.flat .service-loadbalancer h4:before { background-position: -3px -553px; }
 #services.full .service-loadbalancer h4 a { background-position: 0 -660px; }
 
+#services.flat .service-sandboxphpbbcom h4:before { background-position: -3px -603px; }
+#services.full .service-sandboxphpbbcom h4 a { background-position: 0 -720px; }
 
 /* Navigation */
 .navbar {
@@ -446,6 +448,13 @@ a:hover,a:active {
 @media (-o-min-device-pixel-ratio: 1) {
 	.navbar .brand span {
 		background-image: url(../images/logo_small.png);
+	}
+}
+
+@media only screen and (max-width: 600px) , only screen and
+	(max-device-width: 600px) {
+	.logged-in .navbar .brand {
+		display: none;
 	}
 }
 
@@ -517,6 +526,11 @@ a:hover,a:active {
 	(max-device-width: 600px) {
 	.navbar li a {
 		letter-spacing: 0;
+	}
+
+	.logged-in .navbar li a {
+		padding-left: 8px;
+		padding-right: 8px;
 	}
 }
 
@@ -696,6 +710,11 @@ ul.site-checks
 				width: 50%;
 				min-width: 0;
 			}
+
+			ul.site-checks li:nth-child(2n+1)
+			{
+				clear: both;
+			}
 	}
 
 	@media only screen and (max-width: 600px) , only screen and 
@@ -730,6 +749,26 @@ ul.site-checks
 		{
 			font-style: italic;
 			margin-bottom: 10px;
+		}
+
+		ul.site-checks .status-up .site-check
+		{
+			background-color: #31852d;
+			border-color: rgba(255, 255, 255, 0.3);
+			color: #d6e7d5;
+		}
+
+		ul.site-checks .status-down .site-check
+		{
+			background-color: #b52121;
+			border-color: rgba(255, 255, 255, 0.3);
+			color: #f0d3d3;
+		}
+
+		ul.site-checks .status-up h3,
+		ul.site-checks .status-down h3
+		{
+			color: #fff;
 		}
 
 /* Contact form */
