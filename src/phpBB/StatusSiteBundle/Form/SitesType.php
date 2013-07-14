@@ -18,8 +18,8 @@ class SitesType extends AbstractType
             ->add('front_page')
             ->add('status')
             ->add('statusCode')
-            ->add('major')
-            ->add('team')
+            ->add('major', null, array('required' => false))
+            ->add('team', null, array('required' => false))
         ;
     }
 

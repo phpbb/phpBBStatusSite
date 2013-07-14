@@ -14,7 +14,7 @@ class OveridesType extends AbstractType
             ->add('start_time')
             ->add('end_time')
             ->add('up_down')
-            ->add('finished')
+            ->add('finished', null, array('required' => false))
             ->add('site_id')
             ->add('update_id')
         ;
