@@ -14,7 +14,7 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
-    trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
+
     session:         ~
 
 # Twig Configuration
@@ -45,8 +45,6 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-        types:
-            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: %kernel.debug%
 
@@ -54,9 +52,7 @@ doctrine:
         entity_managers:
             default:
                 auto_mapping: true
-                mappings:
-                    ApplicationSonataUserBundle: ~
-                    SonataUserBundle: ~
+                mappings: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -68,19 +64,7 @@ swiftmailer:
 
 # FOS user configuration.
 fos_user:
-    db_driver:      orm # can be orm or odm
-    firewall_name:  main
-    user_class:     Application\Sonata\UserBundle\Entity\User
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: phpBB\StatusSiteBundle\Entity\User
 
-    group:
-        group_class: Application\Sonata\UserBundle\Entity\Group
-
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-
-        sonata.block.service.text:
-        sonata.block.service.rss:
-        sonata.block.service.action:

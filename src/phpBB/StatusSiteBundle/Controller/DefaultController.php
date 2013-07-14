@@ -22,6 +22,7 @@ class DefaultController extends Controller {
 		$time = $status->findOneByName('last')->getValue();
 		$planned = $status->findOneByName('planned')->getValue();
 
+
 		$text = 'Everything operational';
 
 		if ($downtime) {

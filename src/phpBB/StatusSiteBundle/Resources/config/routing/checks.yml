@@ -1,0 +1,30 @@
+admin_checks:
+    pattern:  /
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:index" }
+
+admin_checks_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:show" }
+
+admin_checks_new:
+    pattern:  /new
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:new" }
+
+admin_checks_create:
+    pattern:  /create
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:create" }
+    requirements: { _method: post }
+
+admin_checks_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:edit" }
+
+admin_checks_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:update" }
+    requirements: { _method: post|put }
+
+admin_checks_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "phpBBStatusSiteBundle:Checks:delete" }
+    requirements: { _method: post|delete }

@@ -20,6 +20,12 @@ Install
 
 7. In case the intl extension isn't working (Like on bluehost), and icu-dev ins't available, you can use https://github.com/kbsali/sf2-icu as replacement.
 
+8. Everything can be managed via the admin page: http://status.example.com/admin/OPTION, where OPTION can be:
+   - sites
+   - updates
+   - checks
+   - overides
+
 License
 -------
 [GNU GPL v3](http://opensource.org/licenses/gpl-3.0)
