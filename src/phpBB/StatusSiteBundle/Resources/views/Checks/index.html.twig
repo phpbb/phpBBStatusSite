@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Checks list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Slug</th>
+                <th>Status_code</th>
+                <th>Status</th>
+                <th>Check_time</th>
+                <th>Pingdom_id</th>
+                <th>Lastresponse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_checks_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.slug }}</td>
+                <td>{{ entity.statuscode }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{% if entity.checktime %}{{ entity.checktime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.pingdomid }}</td>
+                <td>{{ entity.lastresponse }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_checks_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_checks_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_checks_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

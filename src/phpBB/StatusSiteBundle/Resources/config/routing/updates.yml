@@ -1,0 +1,30 @@
+admin_updates:
+    pattern:  /
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:index" }
+
+admin_updates_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:show" }
+
+admin_updates_new:
+    pattern:  /new
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:new" }
+
+admin_updates_create:
+    pattern:  /create
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:create" }
+    requirements: { _method: post }
+
+admin_updates_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:edit" }
+
+admin_updates_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:update" }
+    requirements: { _method: post|put }
+
+admin_updates_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "phpBBStatusSiteBundle:Updates:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Overides list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Start_time</th>
+                <th>End_time</th>
+                <th>Up_down</th>
+                <th>Finished</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_overides_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.starttime %}{{ entity.starttime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.endtime %}{{ entity.endtime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.updown }}</td>
+                <td>{{ entity.finished }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_overides_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_overides_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_overides_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

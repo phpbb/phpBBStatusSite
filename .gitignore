@@ -8,3 +8,5 @@ bin
 app/config/parameters.yml
 .settings/*
 .project
+.directory
+*/.directory
