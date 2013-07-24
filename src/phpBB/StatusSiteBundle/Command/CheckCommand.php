@@ -248,12 +248,6 @@ class CheckCommand extends Command
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		// Set timeout on the pingdom call
 		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
-		
-		
-		
-		//REMOVE ME!!!!!!!
-		// curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, 0);
-		// curl_setopt($curl, CURLOPT_VERBOSE, true);
 
 		$data = curl_exec($curl);
 
@@ -262,7 +256,9 @@ class CheckCommand extends Command
 			$this->output->writeln("There has been a cURL error: " . curl_error($curl));
 			return false;
 		}
-
+		
+		curl_close($curl);
+		
 		// Execute the request and decode the json result into an associative array
 		$response = json_decode($data, true);
 
