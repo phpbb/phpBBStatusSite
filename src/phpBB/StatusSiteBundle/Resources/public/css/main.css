@@ -953,3 +953,98 @@ ul.site-checks
 		text-align: center;
 	}
 }
+
+/* Control panel */
+table {
+	border-collapse: separate;
+}
+
+table tbody tr {
+	padding: 5px;
+}
+
+table tbody td {
+	background: rgba(255, 255, 255, 0.5);
+	border: 3px solid rgba(255, 255, 255, 0.5);
+	border-width: 3px 3px 0 0;
+	padding: 5px;
+}
+
+table tbody tr:nth-of-type(2n) td {
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+table tbody td:first-child {
+	border-left-width: 3px;
+}
+
+table tbody tr:last-child td {
+	border-bottom-width: 3px;
+}
+
+table tbody tr:first-child td:first-child {
+	border-top-left-radius: 12px;
+}
+
+table tbody tr:last-child td:first-child {
+	border-bottom-left-radius: 12px;
+}
+
+table tbody tr:first-child td:last-child {
+	border-top-right-radius: 12px;
+}
+
+table tbody tr:last-child td:last-child {
+	border-bottom-right-radius: 12px;
+}
+
+#phpbb_statussitebundle_updatestype {
+	margin: 5px 0;
+	padding: 5px;
+	background: rgba(255, 255, 255, 0.5);
+	border: 3px solid rgba(255, 255, 255, 0.5);
+	border-radius: 12px;
+}
+
+#phpbb_statussitebundle_updatestype > div {
+	margin-left: 200px;
+	padding-bottom: 5px;
+}
+
+#phpbb_statussitebundle_updatestype > div > label {
+	float: left;
+	margin-left: -200px;
+	max-width: 190px;
+}
+
+#phpbb_statussitebundle_updatestype input[type="text"], #phpbb_statussitebundle_updatestype textarea {
+	width: 98%;
+}
+
+#phpbb_statussitebundle_updatestype textarea {
+	height: 200px;
+}
+
+.record_actions li {
+	margin-top: 5px;
+}
+
+@media only screen and (max-width: 620px) , only screen and
+	(max-device-width: 620px) {
+	#phpbb_statussitebundle_updatestype > div {
+		margin-left: 0;
+		border-top: 3px solid rgba(255, 255, 255, 0.5);
+		padding-top: 5px;
+	}
+
+	#phpbb_statussitebundle_updatestype > div:first-child {
+		border-top-width: 0;
+	}
+
+	#phpbb_statussitebundle_updatestype > div > label {
+		float: none;
+		margin-left: 0;
+		display: block;
+		padding-bottom: 5px;
+	}
+}
