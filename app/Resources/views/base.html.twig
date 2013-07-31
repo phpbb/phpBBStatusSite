@@ -19,16 +19,18 @@
 		<meta name="msapplication-task" content="name=Blog; action-uri=http://blog.phpbb.com/; icon-uri=favicon.ico" />
 		<meta name="msapplication-task" content="name=Customise; action-uri=/customise/; icon-uri=favicon.ico" />
 		<meta name="msapplication-task" content="name=Area51; action-uri=http://area51.phpbb.com/; icon-uri=favicon.ico" />
-		
+
+		{{ nelmio_js_error_logger() }}
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		
+
 		{% block stylesheets %}
 			<link href="{{ asset('bundles/phpbbstatussite/css/reset.css')}}" rel="stylesheet">
 			<link href="{{ asset('bundles/phpbbstatussite/css/main.css')}}" rel="stylesheet">
-			
-			
+
+
 		{% endblock %}
 
 
@@ -50,19 +52,19 @@
 			<li{% if selected == 'home' %} class="selected"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
 			<li{% if selected == 'contact' %} class="selected"{% endif %}><a href="{{ path('contact') }}">Contact</a></li>
 			{% endblock %}
-			
+
 			{% if app.user %}
 					<li><a href="/admin/dashboard">ACP</a></li>
 					<li><a href="/logout">Logout</a></li>
 			{% endif %}
 		</ul>
-	</div>		
-	
+	</div>
+
 	<div class="container">
-		
+
 		{% block body %}{% endblock %}
 	</div>
-	
+
 	<div class="footer">
 		<div class="footer-inner">
 			<hr />
@@ -72,12 +74,12 @@
 				View the source code <a href="https://github.com/phpbb/phpBBStatusSite">here</a></p>
 			<p class="copy-right">All times are in UTC</p>
 		</div>
-	</div>	
+	</div>
 	{% block javascripts %}
 		<script src="{{ asset('bundles/phpbbstatussite/js/jquery-1.7.2.min.js') }}"></script>
 		<script src="{{ asset('bundles/phpbbstatussite/js/site.js') }}"></script>
-	{% endblock %}		
-		
+	{% endblock %}
+
 	</body>
 </html>
 

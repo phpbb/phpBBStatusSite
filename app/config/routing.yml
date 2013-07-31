@@ -22,3 +22,6 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+NelmioJsLoggerBundle:
+    resource: "@NelmioJsLoggerBundle/Resources/config/routing.xml"
+    prefix:   /nelmio-js-logger

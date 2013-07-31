@@ -15,11 +15,12 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-	"doctrine/migrations": "*@dev",
-	"doctrine/data-fixtures": "*@dev",
-	"doctrine/doctrine-migrations-bundle": "dev-master@dev",
-	"doctrine/doctrine-fixtures-bundle": "dev-master@dev",
-	"friendsofsymfony/user-bundle": "~2.0@dev"
+        "doctrine/migrations": "*@dev",
+        "doctrine/data-fixtures": "*@dev",
+        "doctrine/doctrine-migrations-bundle": "dev-master@dev",
+        "doctrine/doctrine-fixtures-bundle": "dev-master@dev",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "nelmio/js-logger-bundle": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [
@@ -27,7 +28,7 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
-    ], 
+    ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",

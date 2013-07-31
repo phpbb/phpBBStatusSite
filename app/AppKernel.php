@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new phpBB\StatusSiteBundle\phpBBStatusSiteBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Nelmio\JsLoggerBundle\NelmioJsLoggerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
