@@ -1,6 +1,5 @@
 tools:
     sensiolabs_security_checker: true
-    js_hint: true
     php_cpd:
         enabled: true
         excluded_dirs: [web/app*]
