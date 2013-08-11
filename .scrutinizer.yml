@@ -2,7 +2,7 @@ tools:
     sensiolabs_security_checker: true
     php_cpd:
         enabled: true
-        excluded_dirs: [web/app*]
+        excluded_dirs: [web/*, app/DoctrineMigrations/*]
     php_code_sniffer:
         enabled: true
         config:
