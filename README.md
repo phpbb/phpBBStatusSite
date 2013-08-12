@@ -1,6 +1,8 @@
 phpBB Status Site
 =================
 
+[![Build Status](https://travis-ci.org/phpbb/phpBBStatusSite.png?branch=master)](https://travis-ci.org/phpbb/phpBBStatusSite)
+
 This is the repository for the site created on [status.phpbb.com](http://status.phpbb.com)
 
 Install
