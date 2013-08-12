@@ -5,10 +5,12 @@ php:
   - 5.4
   - 5.3
 
+services:
+  - mysql
+
 before_script:
-  - sh -c pyrus install --force phpunit/DbUnit
-  - phpenv rehash
   - cp app/config/parameters.dist.yml app/config/parameters.yml
+  - mysql -e 'create database testdb;'
   - php composer.phar install
 
 script: bin/phpunit -c app/
