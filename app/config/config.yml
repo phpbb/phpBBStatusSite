@@ -19,6 +19,7 @@ framework:
     trusted_proxies: ~
     fragments:       ~
     http_method_override: true
+    trusted_hosts:   ~
 
     session:         ~
 
