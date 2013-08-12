@@ -1,24 +1,38 @@
+before_commands:
+    - "php composer.phar install --dev"
 tools:
     sensiolabs_security_checker: true
     php_cpd:
         enabled: true
-        excluded_dirs: [web/*, app/DoctrineMigrations/*]
+        excluded_dirs:
+            - web/
+            - vendor/
+            - app/
     php_code_sniffer:
         enabled: true
         config:
             standard: PSR1
             tab_width: 4
         filter:
-            excluded_paths: [app/*]
+            excluded_paths:
+                - web/
+                - vendor/
+                - app/
     php_cs_fixer:
         enabled: true
         config:
             level: all
         filter:
-            excluded_paths: [app/*]
+            excluded_paths:
+                - web/
+                - vendor/
+                - app/
     php_mess_detector:
         filter:
-            excluded_paths: [app/*]
+            excluded_paths:
+                - web/
+                - vendor/
+                - app/
         enabled: true
     php_analyzer:
         enabled: true
@@ -28,7 +42,8 @@ tools:
     php_loc: true
     php_pdepend:
         excluded_dirs:
-            [vendor/*, app/*]
+            - vendor/
         enabled: true
-#   php_code_coverage:
-#           test_command: phpunit -c app/
+    php_code_coverage:
+        test_command: bin/phpunit -c app/
+        enabled: true
