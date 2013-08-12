@@ -1,9 +1,3 @@
-before_commands:
-    - "cp app/config/parameters_tests.dist.yml app/config/parameters.yml"
-    - "mysql -e 'create database testdb;'"
-    - "composer install --dev --no-interaction"
-    - "mysql testdb < app/status.sql"
-
 tools:
     sensiolabs_security_checker: true
     php_cpd:
@@ -47,7 +41,4 @@ tools:
     php_pdepend:
         excluded_dirs:
             - vendor/
-        enabled: true
-    php_code_coverage:
-        test_command: bin/phpunit -c app/
         enabled: true
