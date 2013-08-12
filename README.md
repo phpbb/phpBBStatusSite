@@ -1,7 +1,7 @@
 phpBB Status Site
 =================
 
-[![Build Status](https://travis-ci.org/phpbb/phpBBStatusSite.png?branch=master)](https://travis-ci.org/phpbb/phpBBStatusSite)
+[![Build Status](https://travis-ci.org/phpbb/phpBBStatusSite.png?branch=master)](https://travis-ci.org/phpbb/phpBBStatusSite)[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/phpbb/phpBBStatusSite/badges/quality-score.png?s=3e2cf9edd6e408ab79b540a1ff27837a1e5ba475)](https://scrutinizer-ci.com/g/phpbb/phpBBStatusSite/)
 
 This is the repository for the site created on [status.phpbb.com](http://status.phpbb.com)
 
