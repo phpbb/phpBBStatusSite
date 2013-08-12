@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - 5.5
+  - 5.4
+  - 5.3
+  - 5.3.3
+
+before_script:
+  - sh -c pyrus install --force phpunit/DbUnit; fi"
+  - phpenv rehash
+  - php composer.phar install
+
+script: bin/phpunit -c app/
+
+notifications:
+  email:
+    recipients:
+      - michael@phpbb.com
+    on_success: always
+    on_failure: always
+
+branches:
+  only:
+    master
