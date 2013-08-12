@@ -13,7 +13,6 @@ before_script:
   - mysql -e 'create database testdb;'
   - php composer.phar install
   - mysql testdb < app/status.sql
-  - php app/console fos:user:create testuser test@example.com password --super-admin
 
 script: bin/phpunit -c app/
 
