@@ -12,6 +12,7 @@ before_script:
   - cp app/config/parameters_tests.dist.yml app/config/parameters.yml
   - mysql -e 'create database testdb;'
   - php composer.phar install
+  - mysql testdb < app/status.sql
 
 script: bin/phpunit -c app/
 
