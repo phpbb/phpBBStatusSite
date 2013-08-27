@@ -9,20 +9,17 @@ Install
 -------
 
 1. Clone the repository
-2. Copy `app/config/parameters.dist.yml` to `app/config/parameters.yml` and adjust confiuration as needed.
-3. Run:
+1. Copy `app/config/parameters.dist.yml` to `app/config/parameters.yml` and adjust confiuration as needed.
+1. Run:
 
     $ php composer.phar install
 
-4. Run php app/console doctrine:migrations:migrate to create the initial tables for the site.
-
-5. Run php app/console pingdom:update to initialise the database with initial values.
-
-6. The status site uses the FOSUserBundle for managing users, to create a user via the command line you can use the next commands: https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/command_line_tools.md
-
-7. In case the intl extension isn't working (Like on bluehost), and icu-dev ins't available, you can use https://github.com/kbsali/sf2-icu as replacement.
-
-8. Everything can be managed via the admin page: http://status.example.com/admin/OPTION, where OPTION can be:
+1. Get some inital data by using the database data in app/status.sql
+1. Run php app/console doctrine:migrations:migrate to create the initial tables for the site.
+1. Run php app/console pingdom:update to initialise the database with initial values.
+1. The status site uses the FOSUserBundle for managing users, to create a user via the command line you can use the next commands: https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/command_line_tools.md
+1. In case the intl extension isn't working (Like on bluehost), and icu-dev ins't available, you can use https://github.com/kbsali/sf2-icu as replacement.
+1. Everything can be managed via the admin page: http://status.example.com/admin/OPTION, where OPTION can be:
    - sites
    - updates
    - checks
