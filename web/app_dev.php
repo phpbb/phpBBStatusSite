@@ -16,7 +16,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
     || !in_array(@$_SERVER['REMOTE_ADDR'], array(
         '127.0.0.1',
         '::1',
-		'92.108.130.200',
+	'92.108.130.200',
+	'84.207.252.4',
     ))
 ) {
     header('HTTP/1.0 403 Forbidden');
