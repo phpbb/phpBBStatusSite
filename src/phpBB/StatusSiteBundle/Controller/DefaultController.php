@@ -88,7 +88,7 @@ class DefaultController extends Controller {
 				;
 				$this->get('mailer')->send($message);				
 
-				$this->get('session')->getFlashBag->set('notice', 'Message sent!');
+				$this->get('session')->getFlashBag()->set('notice', 'Message sent!');
 
 				return new RedirectResponse($this->generateUrl('homepage'));
 			}
