@@ -15,7 +15,7 @@ class Overides
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-	protected $id;
+    protected $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
@@ -23,15 +23,15 @@ class Overides
      */
     protected $site_id;
 
-	/**
-	 * @ORM\Column(type="datetime")
-	 */
-	protected $start_time;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $start_time;
 
-	/**
-	 * @ORM\Column(type="datetime")
-	 */
-	protected $end_time;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $end_time;
 
     /**
      * @ORM\ManyToOne(targetEntity="Updates", inversedBy="updates")
@@ -42,23 +42,23 @@ class Overides
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-	protected $up_down;
+    protected $up_down;
 
-	/**
-	 * @ORM\Column(type="boolean")
-	 **/
-	protected $finished;
+    /**
+     * @ORM\Column(type="boolean")
+     **/
+    protected $finished;
 
-    function __construct()
+    public function __construct()
     {
 
     }
-	
-	public function __toString()
-	{
-		return (string)$this->siteId();
-	}
-	
+
+    public function __toString()
+    {
+        return (string) $this->siteId();
+    }
+
     /**
      * Get id
      *
@@ -72,7 +72,7 @@ class Overides
     /**
      * Set site_id
      *
-     * @param integer $siteId
+     * @param  integer  $siteId
      * @return Overides
      */
     public function setSiteId($siteId)
@@ -95,7 +95,7 @@ class Overides
     /**
      * Set start_time
      *
-     * @param \DateTime $startTime
+     * @param  \DateTime $startTime
      * @return Overides
      */
     public function setStartTime($startTime)
@@ -118,7 +118,7 @@ class Overides
     /**
      * Set end_time
      *
-     * @param \DateTime $endTime
+     * @param  \DateTime $endTime
      * @return Overides
      */
     public function setEndTime($endTime)
@@ -141,7 +141,7 @@ class Overides
     /**
      * Set update_id
      *
-     * @param integer $updateId
+     * @param  integer  $updateId
      * @return Overides
      */
     public function setUpdateId($updateId)
@@ -164,7 +164,7 @@ class Overides
     /**
      * Set up_down
      *
-     * @param boolean $upDown
+     * @param  boolean  $upDown
      * @return Overides
      */
     public function setUpDown($upDown)
@@ -187,7 +187,7 @@ class Overides
     /**
      * Add sites
      *
-     * @param phpBB\StatusSiteBundle\Entity\Sites $sites
+     * @param  phpBB\StatusSiteBundle\Entity\Sites $sites
      * @return Overides
      */
     public function addSite(\phpBB\StatusSiteBundle\Entity\Sites $sites)
@@ -220,20 +220,20 @@ class Overides
     /**
      * Set finished
      *
-     * @param boolean $finished
+     * @param  boolean  $finished
      * @return Overides
      */
     public function setFinished($finished)
     {
         $this->finished = $finished;
-    
+
         return $this;
     }
 
     /**
      * Get finished
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFinished()
     {

@@ -10,301 +10,320 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="sites")
  * @ORM\HasLifecycleCallbacks()
  */
-class Sites {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
+class Sites
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Checks", mappedBy="site_id")
-	 */
-	protected $checks;
+    /**
+     * @ORM\OneToMany(targetEntity="Checks", mappedBy="site_id")
+     */
+    protected $checks;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Overides", mappedBy="site_id")
-	 */
-	protected $overides;
+    /**
+     * @ORM\OneToMany(targetEntity="Overides", mappedBy="site_id")
+     */
+    protected $overides;
 
-	/**
-	 * @ORM\Column(type="string", length=100)
-	 */
-	protected $name;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $name;
 
-	/**
-	 * @ORM\Column(type="text")
-	 */
-	protected $description;
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
 
-	/**
-	 * @ORM\Column(type="string", length=100)
-	 */
-	protected $slug;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $slug;
 
-	/**
-	 * @ORM\Column(type="string")
-	 */
-	protected $url;
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $url;
 
-	/**
-	 * @ORM\Column(type="boolean")
-	 */
-	protected $front_page;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $front_page;
 
-	/**
-	 * @ORM\Column(type="string")
-	 */
-	protected $status;
-	
-	/**
-	 * @ORM\Column(type="boolean", nullable=true)
-	 */
-	protected $statusCode;
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $status;
 
-	/**
-	 * @ORM\Column(type="boolean");
-	 */
-	protected $major;
-	
-	/**
-	 * @ORM\Column(type="boolean");
-	 */
-	protected $team;
-	
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $statusCode;
 
-	/**
-	 * @ORM\PrePersist
-	 */
-	public function setCreatedValue() {
-		$this->status = "Unknown";
-	}
+    /**
+     * @ORM\Column(type="boolean");
+     */
+    protected $major;
 
-	public function __construct() {
-		$this->checks = new ArrayCollection();
-		$this->overides = new ArrayCollection();
-	}
-	
-	public function __toString()
-	{
-		return (string)$this->getName();
-	}
+    /**
+     * @ORM\Column(type="boolean");
+     */
+    protected $team;
 
-	/**
-	 * Get id
-	 *
-	 * @return integer
-	 */
-	public function getId() {
-		return $this->id;
-	}
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedValue()
+    {
+        $this->status = "Unknown";
+    }
 
-	/**
-	 * Set name
-	 *
-	 * @param string $name
-	 * @return Sites
-	 */
-	public function setName($name) {
-		$this->name = $name;
+    public function __construct()
+    {
+        $this->checks = new ArrayCollection();
+        $this->overides = new ArrayCollection();
+    }
 
-		return $this;
-	}
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 
-	/**
-	 * Get name
-	 *
-	 * @return string
-	 */
-	public function getName() {
-		return $this->name;
-	}
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	/**
-	 * Set description
-	 *
-	 * @param string $description
-	 * @return Sites
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
+    /**
+     * Set name
+     *
+     * @param  string $name
+     * @return Sites
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get description
-	 *
-	 * @return string
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	/**
-	 * Set slug
-	 *
-	 * @param string $slug
-	 * @return Sites
-	 */
-	public function setSlug($slug) {
-		$this->slug = $slug;
+    /**
+     * Set description
+     *
+     * @param  string $description
+     * @return Sites
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get slug
-	 *
-	 * @return string
-	 */
-	public function getSlug() {
-		return $this->slug;
-	}
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
-	/**
-	 * Set url
-	 *
-	 * @param string $url
-	 * @return Sites
-	 */
-	public function setUrl($url) {
-		$this->url = $url;
+    /**
+     * Set slug
+     *
+     * @param  string $slug
+     * @return Sites
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get url
-	 *
-	 * @return string
-	 */
-	public function getUrl() {
-		return $this->url;
-	}
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 
-	/**
-	 * Set front_page
-	 *
-	 * @param boolean $frontPage
-	 * @return Sites
-	 */
-	public function setFrontPage($frontPage) {
-		$this->front_page = $frontPage;
+    /**
+     * Set url
+     *
+     * @param  string $url
+     * @return Sites
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get front_page
-	 *
-	 * @return boolean
-	 */
-	public function getFrontPage() {
-		return $this->front_page;
-	}
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
 
-	/**
-	 * Add checks
-	 *
-	 * @param phpBB\StatusSiteBundle\Entity\Checks $checks
-	 * @return Sites
-	 */
-	public function addCheck(\phpBB\StatusSiteBundle\Entity\Checks $checks) {
-		$this->checks[] = $checks;
+    /**
+     * Set front_page
+     *
+     * @param  boolean $frontPage
+     * @return Sites
+     */
+    public function setFrontPage($frontPage)
+    {
+        $this->front_page = $frontPage;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Remove checks
-	 *
-	 * @param phpBB\StatusSiteBundle\Entity\Checks $checks
-	 */
-	public function removeCheck(\phpBB\StatusSiteBundle\Entity\Checks $checks) {
-		$this->checks->removeElement($checks);
-	}
+    /**
+     * Get front_page
+     *
+     * @return boolean
+     */
+    public function getFrontPage()
+    {
+        return $this->front_page;
+    }
 
-	/**
-	 * Get checks
-	 *
-	 * @return Doctrine\Common\Collections\Collection
-	 */
-	public function getChecks() {
-		return $this->checks;
-	}
+    /**
+     * Add checks
+     *
+     * @param  phpBB\StatusSiteBundle\Entity\Checks $checks
+     * @return Sites
+     */
+    public function addCheck(\phpBB\StatusSiteBundle\Entity\Checks $checks)
+    {
+        $this->checks[] = $checks;
 
-	/**
-	 * Add overides
-	 *
-	 * @param phpBB\StatusSiteBundle\Entity\Overides $overides
-	 * @return Sites
-	 */
-	public function addOveride(
-			\phpBB\StatusSiteBundle\Entity\Overides $overides) {
-		$this->overides[] = $overides;
+        return $this;
+    }
 
-		return $this;
-	}
+    /**
+     * Remove checks
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Checks $checks
+     */
+    public function removeCheck(\phpBB\StatusSiteBundle\Entity\Checks $checks)
+    {
+        $this->checks->removeElement($checks);
+    }
 
-	/**
-	 * Remove overides
-	 *
-	 * @param phpBB\StatusSiteBundle\Entity\Overides $overides
-	 */
-	public function removeOveride(
-			\phpBB\StatusSiteBundle\Entity\Overides $overides) {
-		$this->overides->removeElement($overides);
-	}
+    /**
+     * Get checks
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getChecks()
+    {
+        return $this->checks;
+    }
 
-	/**
-	 * Get overides
-	 *
-	 * @return Doctrine\Common\Collections\Collection
-	 */
-	public function getOverides() {
-		return $this->overides;
-	}
+    /**
+     * Add overides
+     *
+     * @param  phpBB\StatusSiteBundle\Entity\Overides $overides
+     * @return Sites
+     */
+    public function addOveride(
+            \phpBB\StatusSiteBundle\Entity\Overides $overides) {
+        $this->overides[] = $overides;
 
-	/**
-	 * Set status
-	 *
-	 * @param status $status
-	 * @return Sites
-	 */
-	public function setStatus($status) {
-		$this->status = $status;
+        return $this;
+    }
 
-		return $this;
-	}
+    /**
+     * Remove overides
+     *
+     * @param phpBB\StatusSiteBundle\Entity\Overides $overides
+     */
+    public function removeOveride(
+            \phpBB\StatusSiteBundle\Entity\Overides $overides) {
+        $this->overides->removeElement($overides);
+    }
 
-	/**
-	 * Get status
-	 *
-	 * @return status
-	 */
-	public function getStatus() {
-		return $this->status;
-	}
+    /**
+     * Get overides
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getOverides()
+    {
+        return $this->overides;
+    }
+
+    /**
+     * Set status
+     *
+     * @param  status $status
+     * @return Sites
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
     /**
      * Set major
      *
-     * @param boolean $major
+     * @param  boolean $major
      * @return Sites
      */
     public function setMajor($major)
     {
         $this->major = $major;
-    
+
         return $this;
     }
 
     /**
      * Get major
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getMajor()
     {
@@ -314,20 +333,20 @@ class Sites {
     /**
      * Set statusCode
      *
-     * @param boolean $statusCode
+     * @param  boolean $statusCode
      * @return Sites
      */
     public function setStatusCode($statusCode)
     {
         $this->statusCode = $statusCode;
-    
+
         return $this;
     }
 
     /**
      * Get statusCode
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getStatusCode()
     {
@@ -337,20 +356,20 @@ class Sites {
     /**
      * Set team
      *
-     * @param boolean $team
+     * @param  boolean $team
      * @return Sites
      */
     public function setTeam($team)
     {
         $this->team = $team;
-    
+
         return $this;
     }
 
     /**
      * Get team
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getTeam()
     {

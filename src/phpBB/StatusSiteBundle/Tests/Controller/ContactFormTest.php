@@ -27,7 +27,7 @@ class ContactFormTest extends TypeTestCase
             $this->assertArrayHasKey($key, $children);
         }
     }
-    
+
     public function getValidTestData()
     {
         return array(
@@ -38,5 +38,5 @@ class ContactFormTest extends TypeTestCase
                 ),
             ),
         );
-    }    
+    }
 }

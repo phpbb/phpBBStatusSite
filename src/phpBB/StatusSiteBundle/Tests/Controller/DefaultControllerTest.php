@@ -3,7 +3,6 @@
 namespace phpBB\StatusSiteBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use phpBB\StatusSiteBundle\Controller\DefaultController;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultControllerTest extends WebTestCase
@@ -24,5 +23,5 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/contact');
 
         $this->assertTrue($crawler->filter('html:contains("Only use this contact form if you have any issues with accessing one of our sites or services.")')->count() > 0);
-    } 
+    }
 }
