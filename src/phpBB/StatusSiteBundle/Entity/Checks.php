@@ -9,77 +9,78 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="checks")
  * @ORM\HasLifecycleCallbacks()
  */
-class Checks {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
+class Checks
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
-	 * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
-	 */
-	protected $site_id;
+    /**
+     * @ORM\ManyToOne(targetEntity="Sites", inversedBy="checks")
+     * @ORM\JoinColumn(name="site_id", referencedColumnName="id")
+     */
+    protected $site_id;
 
-	/**
-	 * @ORM\Column(type="string", length=100)
-	 */
-	protected $name;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $name;
 
-	/**
-	 * @ORM\Column(type="text")
-	 */
-	protected $description;
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
 
-	/**
-	 * @ORM\Column(type="string", length=100)
-	 */
-	protected $slug;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $slug;
 
-	/**
-	 * @ORM\Column(type="boolean", nullable=true)
-	 */
-	protected $status_code;
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $status_code;
 
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
-	protected $status;
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $status;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=true)
-	 */
-	protected $check_time;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $check_time;
 
-	/**
-	 * @ORM\Column(type="integer", nullable=true)
-	 */
-	protected $pingdom_id;
-	
-	/**
-	 * 
-	 * @ORM\Column(type="integer", nullable=true)
-	 */
-	protected $lastresponse;
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $pingdom_id;
 
-	/**
-	 * @ORM\PrePersist
-	 */
-	public function setCreatedValue() {
-		$this->status = "Unknown";
-	}
-	public function __toString()
-	{
-		return (string)$this->getName();
-	}	
+    /**
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $lastresponse;
 
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedValue()
+    {
+        $this->status = "Unknown";
+    }
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -89,20 +90,20 @@ class Checks {
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Checks
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -112,20 +113,20 @@ class Checks {
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Checks
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -135,20 +136,20 @@ class Checks {
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Checks
      */
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -158,20 +159,20 @@ class Checks {
     /**
      * Set url
      *
-     * @param string $url
+     * @param  string $url
      * @return Checks
      */
     public function setUrl($url)
     {
         $this->url = $url;
-    
+
         return $this;
     }
 
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
@@ -181,20 +182,20 @@ class Checks {
     /**
      * Set status_code
      *
-     * @param boolean $statusCode
+     * @param  boolean $statusCode
      * @return Checks
      */
     public function setStatusCode($statusCode)
     {
         $this->status_code = $statusCode;
-    
+
         return $this;
     }
 
     /**
      * Get status_code
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getStatusCode()
     {
@@ -204,20 +205,20 @@ class Checks {
     /**
      * Set status
      *
-     * @param string $status
+     * @param  string $status
      * @return Checks
      */
     public function setStatus($status)
     {
         $this->status = $status;
-    
+
         return $this;
     }
 
     /**
      * Get status
      *
-     * @return string 
+     * @return string
      */
     public function getStatus()
     {
@@ -227,20 +228,20 @@ class Checks {
     /**
      * Set check_time
      *
-     * @param \DateTime $checkTime
+     * @param  \DateTime $checkTime
      * @return Checks
      */
     public function setCheckTime($checkTime)
     {
         $this->check_time = $checkTime;
-    
+
         return $this;
     }
 
     /**
      * Get check_time
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCheckTime()
     {
@@ -250,20 +251,20 @@ class Checks {
     /**
      * Set pingdom_id
      *
-     * @param integer $pingdomId
+     * @param  integer $pingdomId
      * @return Checks
      */
     public function setPingdomId($pingdomId)
     {
         $this->pingdom_id = $pingdomId;
-    
+
         return $this;
     }
 
     /**
      * Get pingdom_id
      *
-     * @return integer 
+     * @return integer
      */
     public function getPingdomId()
     {
@@ -273,20 +274,20 @@ class Checks {
     /**
      * Set site_id
      *
-     * @param \phpBB\StatusSiteBundle\Entity\Sites $siteId
+     * @param  \phpBB\StatusSiteBundle\Entity\Sites $siteId
      * @return Checks
      */
     public function setSiteId(\phpBB\StatusSiteBundle\Entity\Sites $siteId = null)
     {
         $this->site_id = $siteId;
-    
+
         return $this;
     }
 
     /**
      * Get site_id
      *
-     * @return \phpBB\StatusSiteBundle\Entity\Sites 
+     * @return \phpBB\StatusSiteBundle\Entity\Sites
      */
     public function getSiteId()
     {
@@ -296,20 +297,20 @@ class Checks {
     /**
      * Set lastresponse
      *
-     * @param integer $lastresponse
+     * @param  integer $lastresponse
      * @return Checks
      */
     public function setLastresponse($lastresponse)
     {
         $this->lastresponse = $lastresponse;
-    
+
         return $this;
     }
 
     /**
      * Get lastresponse
      *
-     * @return integer 
+     * @return integer
      */
     public function getLastresponse()
     {
