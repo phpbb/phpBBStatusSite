@@ -14,22 +14,22 @@ class Status
      * @ORM\Id
      * @ORM\Column(type="string")
      */
-	protected $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="string")
      */
-	protected $value;
+    protected $value;
 
-	public function __toString()
-	{
-		return (string)$this->getName();
-	}	
-	
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
+
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Status
      */
     public function setName($name)
@@ -52,7 +52,7 @@ class Status
     /**
      * Set value
      *
-     * @param string $value
+     * @param  string $value
      * @return Status
      */
     public function setValue($value)

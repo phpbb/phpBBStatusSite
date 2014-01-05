@@ -17,22 +17,22 @@ class Updates
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-	protected $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-	protected $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="text")
      */
-	protected $description;
+    protected $description;
 
-	/**
-	 * @ORM\Column(type="datetime")
-	 */
-	protected $post_time;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $post_time;
 
     /**
      * @ORM\OneToMany(targetEntity="Overides", mappedBy="update_id")
@@ -43,17 +43,17 @@ class Updates
      * @ORM\ManyToOne(targetEntity="\phpBB\StatusSiteBundle\Entity\User", inversedBy="updates")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-	protected $user_id;
+    protected $user_id;
 
     public function __construct()
     {
         $this->overides = new ArrayCollection();
     }
-	
-	public function __toString()
-	{
-		return (string)$this->getName();
-	}	
+
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 
     /**
      * @ORM\PrePersist
@@ -76,7 +76,7 @@ class Updates
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string  $name
      * @return Updates
      */
     public function setName($name)
@@ -99,7 +99,7 @@ class Updates
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string  $description
      * @return Updates
      */
     public function setDescription($description)
@@ -122,7 +122,7 @@ class Updates
     /**
      * Set post_time
      *
-     * @param \DateTime $postTime
+     * @param  \DateTime $postTime
      * @return Updates
      */
     public function setPostTime($postTime)
@@ -145,7 +145,7 @@ class Updates
     /**
      * Set overide_id
      *
-     * @param phpBB\StatusSiteBundle\Entity\Overides $overideId
+     * @param  phpBB\StatusSiteBundle\Entity\Overides $overideId
      * @return Updates
      */
     public function setOverideId(\phpBB\StatusSiteBundle\Entity\Overides $overideId = null)
@@ -168,7 +168,7 @@ class Updates
     /**
      * Add overides
      *
-     * @param phpBB\StatusSiteBundle\Entity\Overides $overides
+     * @param  phpBB\StatusSiteBundle\Entity\Overides $overides
      * @return Updates
      */
     public function addOveride(\phpBB\StatusSiteBundle\Entity\Overides $overides)
@@ -201,7 +201,7 @@ class Updates
     /**
      * Set user_id
      *
-     * @param phpBB\StatusSiteBundle\Entity\User $userId
+     * @param  phpBB\StatusSiteBundle\Entity\User $userId
      * @return Updates
      */
     public function setUserId(\phpBB\StatusSiteBundle\Entity\User $userId = null)
