@@ -549,12 +549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "62e20bb35da280baed221cc0a8076d46bd70db38"
+                "reference": "667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/62e20bb35da280baed221cc0a8076d46bd70db38",
-                "reference": "62e20bb35da280baed221cc0a8076d46bd70db38",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1",
+                "reference": "667f20875f0dd3f3fce3e5a7d97cceac92a8e9d1",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2013-12-18 08:25:03"
+            "time": "2014-01-02 21:27:15"
         },
         {
             "name": "doctrine/inflector",
@@ -723,12 +723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "5d83a66d8da927cb71d1550bb51466a6501f13f8"
+                "reference": "199cb62a80c7723942d14107c23bc45168e4241c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/5d83a66d8da927cb71d1550bb51466a6501f13f8",
-                "reference": "5d83a66d8da927cb71d1550bb51466a6501f13f8",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/199cb62a80c7723942d14107c23bc45168e4241c",
+                "reference": "199cb62a80c7723942d14107c23bc45168e4241c",
                 "shasum": ""
             },
             "require": {
@@ -775,7 +775,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2014-01-01 13:52:46"
+            "time": "2014-01-04 09:19:33"
         },
         {
             "name": "doctrine/orm",
@@ -1672,16 +1672,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366"
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2e47d2edd45080c046bc32dd2ca5c64f31086366",
-                "reference": "2e47d2edd45080c046bc32dd2ca5c64f31086366",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
+                "reference": "377a5fb23bfdc2fb616610b7b7ab7cc9a50e614d",
                 "shasum": ""
             },
             "require": {
@@ -1741,7 +1741,7 @@
                 "doctrine/orm": "~2.2,>=2.2.3",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
-                "ocramius/proxy-manager": ">=0.3.1,<0.5-dev",
+                "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
                 "propel/propel1": "1.6.*"
             },
             "type": "library",
@@ -1781,7 +1781,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-12-03 15:23:03"
+            "time": "2014-01-05 02:12:11"
         },
         {
             "name": "twig/extensions",
