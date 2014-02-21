@@ -236,7 +236,7 @@ class CheckCommand extends Command
 
         // IMPORTANT: should not be enabled on the server.
         // Without verify peer it doesn't work under windows?
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
         $data = curl_exec($curl);
 
