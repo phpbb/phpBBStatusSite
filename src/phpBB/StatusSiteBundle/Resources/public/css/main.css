@@ -86,6 +86,10 @@ a:hover,a:active {
 	background-color: #da9090;
 }
 
+#services.flat .row.status-paused div{
+    background-color: #da8d06;
+}
+
 #services.flat .row.status-unknown div,
 #services.flat .row.link-hover div {
 	background-color: #89a6bd;
@@ -162,6 +166,10 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
+#services.flat .status-paused h4:before{
+    background-color: #da8d06;
+}
+
 #services.flat .status-unknown h4:before,
 #services.flat .link-hover h4:before {
 	background-color: #134c7b;
@@ -174,6 +182,10 @@ a:hover,a:active {
 
 #services.flat .status-down h4 a {
 	color: #360a0a;
+}
+
+#services.flat .status-paused h4 a{
+    color: #da8d06;
 }
 
 #services.flat .status-unknown h4 a,
@@ -238,6 +250,11 @@ a:hover,a:active {
 	background-color: #b52121;
 }
 
+#services.full .status-paused h4 a
+{
+    background-color: #da8d06;
+}
+
 #services.full .status-unknown h4 a,
 #services.full h4:hover a {
 	background-color: #134c7b;
@@ -295,7 +312,9 @@ a:hover,a:active {
 #services.full .status-row.status-down {
 	background-color: #b52121;
 }
-
+#services.full .status-row.status-paused{
+    background-color: #da8d06;
+}
 #services.full .status-row.status-unknown {
 	background-color: #134c7b;
 }
@@ -337,6 +356,9 @@ a:hover,a:active {
 
 #services.full .status-down span {
 	background-color: #b52121;
+}
+#services.full .status-paused span {
+    background-color: #da8d06;
 }
 
 #services.full .status-unknown span {
@@ -776,8 +798,24 @@ ul.site-checks
 			color: #f0d3d3;
 		}
 
+        ul.site-checks .status-paused .site-check
+        {
+            background-color: #da8d06;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #f0d3d3;
+        }
+
+        ul.site-checks .status-unknown .site-check
+        {
+            background-color: #134c7b;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #f0d3d3;
+        }
+
 		ul.site-checks .status-up h3,
-		ul.site-checks .status-down h3
+		ul.site-checks .status-down h3,
+        ul.site-checks .status-paused h3,
+        ul.site-checks .status-unknown h3
 		{
 			color: #fff;
 		}

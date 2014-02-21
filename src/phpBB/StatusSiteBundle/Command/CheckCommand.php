@@ -13,8 +13,10 @@ class CheckCommand extends Command
 
     const INIT = 0;
     const UP = 1;
-    const DOWN = 2;
+    const PAUSED = 2;
     const UNKNOWN = 3;
+    const DOWN = 4;
+
 
     protected function configure()
     {
@@ -81,15 +83,20 @@ class CheckCommand extends Command
 
                     case 'unknown':
                         $st = 'Unknown';
-                        $sitest = self::UNKNOWN;
-                        $sitestatus = $st;
+
+                        if ($sitest <= self::UNKNOWN) {
+                            $sitest = self::UNKNOWN;
+                            $sitestatus = $st;
+                        }
                         break;
 
                     case 'paused':
                         $st = 'Paused';
-                        $up = true; // Might change this to false?
 
-                        $sitestatus = $st;
+                        if ($sitest <= self::PAUSED) {
+                            $sitest = self::PAUSED;
+                            $sitestatus = $st;
+                        }
 
                         break;
 
@@ -100,16 +107,17 @@ class CheckCommand extends Command
                         // there is no other check set to down!
                         if ($sitest <= self::UP) {
                             $sitest = self::UP;
-                            $sitestatus = 'Up';
+                            $sitestatus = $st;
                         }
 
                         break;
 
                     default:
+                        $st = 'ERROR';
                         $output->writeln("Unknown status: " . $status['check']['status']);
                 }
 
-                $output->writeln("Status: " . $st . " Up: " . (int) $up);
+                $output->writeln("Status: " . $st . " Up: " . (int)$up);
 
                 if ($st != $check->getStatus() || $up != $check->getStatusCode()) {
                     // Going to send a email O_o_O
@@ -209,13 +217,13 @@ class CheckCommand extends Command
         $curl = curl_init();
         // Set target URL
         curl_setopt($curl, CURLOPT_URL,
-                "https://api.pingdom.com/api/2.0/checks/" . $id);
+            "https://api.pingdom.com/api/2.0/checks/" . $id);
         // Set the desired HTTP method (GET is default, see the documentation for each request)
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         // Set user (email) and password
 
         curl_setopt($curl, CURLOPT_USERPWD,
-                $container->getParameter("pingdom_user") . ":" . $container->getParameter("pingdom_password"));
+            $container->getParameter("pingdom_user") . ":" . $container->getParameter("pingdom_password"));
 
         // Add a http header containing the application key (see the Authentication section of this document)
         curl_setopt($curl, CURLOPT_HTTPHEADER,
@@ -225,6 +233,10 @@ class CheckCommand extends Command
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         // Set timeout on the pingdom call
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+
+        // IMPORTANT: should not be enabled on the server.
+        // Without verify peer it doesn't work under windows?
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
         $data = curl_exec($curl);
 
