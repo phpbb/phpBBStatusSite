@@ -234,7 +234,7 @@ class CheckCommand extends Command
         // Set timeout on the pingdom call
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
 
-        // IMPORTANT: should not be enabled on the server.
+        // IMPORTANT: shouldn't be enabled on the server.
         // Without verify peer it doesn't work under windows?
         // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
