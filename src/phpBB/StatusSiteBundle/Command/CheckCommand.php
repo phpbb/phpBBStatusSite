@@ -57,6 +57,13 @@ class CheckCommand extends Command
 
                 $status = $this->checkId($pingdom);
 
+                if (is_array($status) && !isset($status['check']))
+                {
+                    $output->writeln("Pingdom returned a status, but there is no check result? Export: ", var_export($status, true));
+
+                    $status = false;
+                }
+
                 if ($status === false) {
                     $status = array(
                         'check' => array(
